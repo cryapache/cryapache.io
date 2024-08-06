@@ -37,8 +37,8 @@ params:
             default: Licensed under CC BY-NC-SA 4.0
 
     comments:
-        enabled: false
-        provider: disqus
+        enabled: true
+        provider: waline
 
         disqusjs:
             shortname:
@@ -73,18 +73,20 @@ params:
 
         # Waline client configuration see: https://waline.js.org/en/reference/client/props.html
         waline:
-            serverURL:
-            lang:
-            visitor:
+            serverURL: https://cryapacheio-comments-ai615uxyf-cryapaches-projects.vercel.app/
+            lang: zh-CN
+            visitor: false
             avatar:
             emoji:
-                - https://cdn.jsdelivr.net/gh/walinejs/emojis/weibo
+                - https://npm.elemecdn.com/@waline/emojis@1.1.0/bilibili
+                - https://npm.elemecdn.com/@waline/emojis@1.1.0/bmoji
+                - https://npm.elemecdn.com/@waline/emojis@1.1.0/weibo
             requiredMeta:
-                - nick
-                - mail
+                - name
+                - email
+            placeholder: 欢迎留下宝贵的评论!
             locale:
                 admin: Admin
-                placeholder:
 
         twikoo:
             envId:
@@ -117,9 +119,20 @@ params:
             host:
             id:
 
-    widgets:
-        homepage: []
-        page: []
+    widgets: 
+      homepage: 
+         - type: search 
+         - type: archives 
+           params: 
+               limit: 5 
+         - type: categories 
+           params: 
+               limit: 10 
+         - type: tag-cloud 
+           params: 
+               limit: 10 
+      page: 
+         - type: toc 
 
     opengraph:
         twitter:
