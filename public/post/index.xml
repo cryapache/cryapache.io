@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
-        <title>Posts on My New Hugo Site</title>
+        <title>Posts on 墨因梦启</title>
         <link>http://localhost:1313/post/</link>
-        <description>Recent content in Posts on My New Hugo Site</description>
+        <description>Recent content in Posts on 墨因梦启</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <lastBuildDate>Tue, 06 Aug 2024 19:39:48 +0800</lastBuildDate><atom:link href="http://localhost:1313/post/index.xml" rel="self" type="application/rss+xml" /><item>
@@ -12,7 +12,76 @@
         <pubDate>Tue, 06 Aug 2024 19:39:48 +0800</pubDate>
         
         <guid>http://localhost:1313/post/%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</guid>
-        <description>&lt;p&gt;测试一下&lt;/p&gt;
+        <description>&lt;h2 id=&#34;前言&#34;&gt;前言
+&lt;/h2&gt;&lt;p&gt;搭个博客各种问题改来改去好麻烦，简单记录一下做到目前这个程度的路径吧。&lt;/p&gt;
+&lt;h2 id=&#34;使用hugo本地建站&#34;&gt;使用Hugo本地建站
+&lt;/h2&gt;&lt;h3 id=&#34;什么是hugo&#34;&gt;什么是Hugo
+&lt;/h3&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.gohugo.org/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Hugo&lt;/a&gt;是由 Go 语言实现的静态网站生成器。简单、易用、高效、易扩展、快速部署。&lt;br&gt;
+下面内容参考hugo官网的&lt;a class=&#34;link&#34; href=&#34;https://gohugo.io/getting-started/quick-start/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;quick start&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;hugo本地安装&#34;&gt;Hugo本地安装
+&lt;/h3&gt;&lt;p&gt;可以参考&lt;a class=&#34;link&#34; href=&#34;https://gohugo.io/installation/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;官方文档&lt;/a&gt;,我是win11系统，这里使用&lt;a class=&#34;link&#34; href=&#34;https://gohugo.io/installation/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Chocolatey&lt;/a&gt;安装了hugo的拓展版本:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;choco install hugo-extended
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Chocolatey 是一个流行的软件包管理器，主要用于 Windows 操作系统。它受到 Linux 和 Mac 系统中已有的包管理工具（如 apt、yum 和 Homebrew）的启发，旨在简化在 Windows 平台上安装和更新软件的过程。这个可以自行学习使用。&lt;/p&gt;
+&lt;p&gt;安装完成后，输入以下命令检查hugo版本：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;hugo version
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;使用hugo创建博客&#34;&gt;使用hugo创建博客
+&lt;/h3&gt;&lt;p&gt;输入下列指令以创建博客项目：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;hugo new site [项目名称] 
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;该命令会在目录下创建博客项目文件夹，输入指令将其该为当前根目录&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;cd [项目名称]
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;这里我是用的主题是stack，将其克隆到themes文件夹&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;git submodule add https://github.com/CaiJimmy/hugo-theme-stack/ themes/hugo-theme-stack
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;在网站配置文件夹&lt;code&gt;hugo.toml&lt;/code&gt;文件后追加一行，指向当前主题&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;theme = &amp;#39;主题文件夹名称&amp;#39; 
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;启动Hugo的开发服务器查看站点&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;hugo server
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;如果运行成功，提示的倒数第二行会显示本地服务器地址，打开即可看到你部署的网页。&lt;/p&gt;
+&lt;p&gt;按&lt;code&gt;Ctrl + C&lt;/code&gt;停止运行&lt;/p&gt;
+&lt;h2 id=&#34;stack主题美化&#34;&gt;Stack主题美化
+&lt;/h2&gt;&lt;p&gt;Stack是hugo中的一个主题，详细配置可以参考&lt;a class=&#34;link&#34; href=&#34;https://stack-docs.netlify.app/zh/configuration/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Stack中文文档&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;编写博客&#34;&gt;编写博客
+&lt;/h2&gt;&lt;h3 id=&#34;使用hugo创建文章&#34;&gt;使用hugo创建文章
+&lt;/h3&gt;&lt;p&gt;在博客根目录下运行创建新博客文章:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;hugo new post/untitled.md
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;比起直接新建&lt;code&gt;.md&lt;/code&gt;文件，使用hugo创建可以自动填充&lt;a class=&#34;link&#34; href=&#34;https://www.gohugo.org/doc/content/front-matter/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
+    &gt;Front Matter&lt;/a&gt;模板，模板可以在&lt;code&gt;\archetypes\default.md&lt;/code&gt;中找到并修改&lt;/p&gt;
+&lt;h3 id=&#34;添加图片&#34;&gt;添加图片
+&lt;/h3&gt;&lt;p&gt;众所周知&lt;code&gt;.md&lt;/code&gt;文件是不存储图片的，想在文章中存储图片有三种方式:&lt;/p&gt;
+&lt;p&gt;一种是将图片添加到assets/img中然后引用，这样编译后图片会存储在网站根目录以供调用，缺点是编写时没法查看图片，全凭感觉。&lt;/p&gt;
+&lt;p&gt;还可以在创建博客时多建一层，使文件夹结构如下&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;post&lt;/li&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;newBlog&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;newBlog.md&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;img.png&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;这样则可以通过相对路径调用图片&lt;/p&gt;
+&lt;p&gt;还有就是通过图床来调用，这个可以稍后再学&lt;/p&gt;
 </description>
         </item>
         <item>
