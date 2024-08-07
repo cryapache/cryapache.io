@@ -12,7 +12,17 @@
         <pubDate>Tue, 06 Aug 2024 19:39:48 +0800</pubDate>
         
         <guid>http://localhost:1313/post/%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</guid>
-        <description>&lt;h2 id=&#34;前言&#34;&gt;前言
+        <description>&lt;img src="http://localhost:1313/cover.png" alt="Featured image of post 使用hugo搭建博客" /&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/cover.png&#34;
+	
+	
+	
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;???&#34;
+	
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;前言&#34;&gt;前言
 &lt;/h2&gt;&lt;p&gt;搭个博客各种问题改来改去好麻烦，简单记录一下做到目前这个程度的路径吧。&lt;/p&gt;
 &lt;h2 id=&#34;使用hugo本地建站&#34;&gt;使用Hugo本地建站
 &lt;/h2&gt;&lt;h3 id=&#34;什么是hugo&#34;&gt;什么是Hugo

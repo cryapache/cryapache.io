@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html lang="en-us" dir="ltr">
     <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="前言\r搭个博客各种问题改来改去好麻烦，简单记录一下做到目前这个程度的路径吧。 使用Hugo本地建站\r什么是Hugo\rHugo是由 Go 语言实现的静态网站生成器。简单、易用、高效、易扩展、快速部署。 下面内容参考hugo官网的quick start Hugo本地安装\r可以参考官方文档,我是win11系统，这里使用Chocolatey安装了hugo的拓展版本: choco install hugo-extended Chocolatey 是一个流行的软件包管理器，主要用于 Windows 操作系统。它受到 Linux 和 Mac 系统中已有的包管理工具（如 apt、yum 和 Homebrew）的启发，旨在简化在 Windows 平台上安装和更新软件的过程。这个可以自行学习使用。 安装完成后，输入以下命令检查hugo版本： hugo version 使用hugo创建博客\r输入下列指令以创建博客项目： hugo new site [项目名称] 该命令会在目录下创建博客项目文件夹，输入指令将其该为当前根目录 cd [项目名称] 这里我是用的主题是stack，将其克隆到themes文件夹 git submodule add https://github.com/CaiJimmy/hugo-theme-stack/ themes/hugo-theme-stack 在网站配置文件夹hugo.toml文件后追加一行，指向当前主题 theme = &#39;主题文件夹名称&#39; 启动Hugo的开发服务器查看站点 hugo server 如果运行成功，提示的倒数第二行会显示本地服务器地址，打开即可看到你部署的网页。 按Ctrl + C停止运行 Stack主题美化\rStack是hugo中的一个主题，详细配置可以参考Stack中文文档 编写博客\r使用hugo创建文章\r在博客根目录下运行创建新博客文章: hugo new post/untitled.md 比起直接新建.md文件，使用hugo创建可以自动填充Front Matter模板，模板可以在\\archetypes\\default.md中找到并修改 添加图片\r众所周知.md文件是不存储图片的，想在文章中存储图片有三种方式: 一种是将图片添加到assets/img中然后引用，这样编译后图片会存储在网站根目录以供调用，缺点是编写时没法查看图片，全凭感觉。 还可以在创建博客时多建一层，使文件夹结构如下">
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="前言\r搭个博客各种问题改来改去好麻烦，简单记录一下做到目前这个程度的路径吧。 使用Hugo本地建站\r什么是Hugo\rHugo是由 Go 语言实现的静态网站生成器。简单、易用、高效、易扩展、快速部署。 下面内容参考hugo官网的quick start Hugo本地安装\r可以参考官方文档,我是win11系统，这里使用Chocolatey安装了hugo的拓展版本: choco install hugo-extended Chocolatey 是一个流行的软件包管理器，主要用于 Windows 操作系统。它受到 Linux 和 Mac 系统中已有的包管理工具（如 apt、yum 和 Homebrew）的启发，旨在简化在 Windows 平台上安装和更新软件的过程。这个可以自行学习使用。 安装完成后，输入以下命令检查hugo版本： hugo version 使用hugo创建博客\r输入下列指令以创建博客项目： hugo new site [项目名称] 该命令会在目录下创建博客项目文件夹，输入指令将其该为当前根目录 cd [项目名称] 这里我是用的主题是stack，将其克隆到themes文件夹 git submodule add https://github.com/CaiJimmy/hugo-theme-stack/ themes/hugo-theme-stack 在网站配置文件夹hugo.toml文件后追加一行，指向当前主题 theme = &#39;主题文件夹名称&#39; 启动Hugo的开发服务器查看站点 hugo server 如果运行成功，提示的倒数第二行会显示本地服务器地址，打开即可看到你部署的网页。 按Ctrl + C停止运行 Stack主题美化\rStack是hugo中的一个主题，详细配置可以参考Stack中文文档 编写博客\r使用hugo创建文章\r在博客根目录下运行创建新博客文章: hugo new post/untitled.md 比起直接新建.md文件，使用hugo创建可以自动填充Front Matter模板，模板可以在\\archetypes\\default.md中找到并修改 添加图片\r众所周知.md文件是不存储图片的，想在文章中存储图片有三种方式: 一种是将图片添加到assets/img中然后引用，这样编译后图片会存储在网站根目录以供调用，缺点是编写时没法查看图片，全凭感觉。">
 <title>使用hugo搭建博客</title>
 
 <link rel='canonical' href='http://localhost:1313/post/%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/'>
 
 <link rel="stylesheet" href="/scss/style.min.e8c7fca7d1c9294aa7a4f3426c225ee26540f7d94e39be0b5a4a5c8a49ca5a25.css"><meta property='og:title' content="使用hugo搭建博客">
-<meta property='og:description' content="前言\r搭个博客各种问题改来改去好麻烦，简单记录一下做到目前这个程度的路径吧。 使用Hugo本地建站\r什么是Hugo\rHugo是由 Go 语言实现的静态网站生成器。简单、易用、高效、易扩展、快速部署。 下面内容参考hugo官网的quick start Hugo本地安装\r可以参考官方文档,我是win11系统，这里使用Chocolatey安装了hugo的拓展版本: choco install hugo-extended Chocolatey 是一个流行的软件包管理器，主要用于 Windows 操作系统。它受到 Linux 和 Mac 系统中已有的包管理工具（如 apt、yum 和 Homebrew）的启发，旨在简化在 Windows 平台上安装和更新软件的过程。这个可以自行学习使用。 安装完成后，输入以下命令检查hugo版本： hugo version 使用hugo创建博客\r输入下列指令以创建博客项目： hugo new site [项目名称] 该命令会在目录下创建博客项目文件夹，输入指令将其该为当前根目录 cd [项目名称] 这里我是用的主题是stack，将其克隆到themes文件夹 git submodule add https://github.com/CaiJimmy/hugo-theme-stack/ themes/hugo-theme-stack 在网站配置文件夹hugo.toml文件后追加一行，指向当前主题 theme = &#39;主题文件夹名称&#39; 启动Hugo的开发服务器查看站点 hugo server 如果运行成功，提示的倒数第二行会显示本地服务器地址，打开即可看到你部署的网页。 按Ctrl + C停止运行 Stack主题美化\rStack是hugo中的一个主题，详细配置可以参考Stack中文文档 编写博客\r使用hugo创建文章\r在博客根目录下运行创建新博客文章: hugo new post/untitled.md 比起直接新建.md文件，使用hugo创建可以自动填充Front Matter模板，模板可以在\\archetypes\\default.md中找到并修改 添加图片\r众所周知.md文件是不存储图片的，想在文章中存储图片有三种方式: 一种是将图片添加到assets/img中然后引用，这样编译后图片会存储在网站根目录以供调用，缺点是编写时没法查看图片，全凭感觉。 还可以在创建博客时多建一层，使文件夹结构如下">
+<meta property='og:description' content="前言\r搭个博客各种问题改来改去好麻烦，简单记录一下做到目前这个程度的路径吧。 使用Hugo本地建站\r什么是Hugo\rHugo是由 Go 语言实现的静态网站生成器。简单、易用、高效、易扩展、快速部署。 下面内容参考hugo官网的quick start Hugo本地安装\r可以参考官方文档,我是win11系统，这里使用Chocolatey安装了hugo的拓展版本: choco install hugo-extended Chocolatey 是一个流行的软件包管理器，主要用于 Windows 操作系统。它受到 Linux 和 Mac 系统中已有的包管理工具（如 apt、yum 和 Homebrew）的启发，旨在简化在 Windows 平台上安装和更新软件的过程。这个可以自行学习使用。 安装完成后，输入以下命令检查hugo版本： hugo version 使用hugo创建博客\r输入下列指令以创建博客项目： hugo new site [项目名称] 该命令会在目录下创建博客项目文件夹，输入指令将其该为当前根目录 cd [项目名称] 这里我是用的主题是stack，将其克隆到themes文件夹 git submodule add https://github.com/CaiJimmy/hugo-theme-stack/ themes/hugo-theme-stack 在网站配置文件夹hugo.toml文件后追加一行，指向当前主题 theme = &#39;主题文件夹名称&#39; 启动Hugo的开发服务器查看站点 hugo server 如果运行成功，提示的倒数第二行会显示本地服务器地址，打开即可看到你部署的网页。 按Ctrl + C停止运行 Stack主题美化\rStack是hugo中的一个主题，详细配置可以参考Stack中文文档 编写博客\r使用hugo创建文章\r在博客根目录下运行创建新博客文章: hugo new post/untitled.md 比起直接新建.md文件，使用hugo创建可以自动填充Front Matter模板，模板可以在\\archetypes\\default.md中找到并修改 添加图片\r众所周知.md文件是不存储图片的，想在文章中存储图片有三种方式: 一种是将图片添加到assets/img中然后引用，这样编译后图片会存储在网站根目录以供调用，缺点是编写时没法查看图片，全凭感觉。">
 <meta property='og:url' content='http://localhost:1313/post/%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/'>
 <meta property='og:site_name' content='墨因梦启'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2024-08-06T19:39:48&#43;08:00'/><meta property='article:modified_time' content='2024-08-06T19:39:48&#43;08:00'/>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2024-08-06T19:39:48&#43;08:00'/><meta property='article:modified_time' content='2024-08-06T19:39:48&#43;08:00'/><meta property='og:image' content='http://localhost:1313/cover.png' />
 <meta name="twitter:title" content="使用hugo搭建博客">
-<meta name="twitter:description" content="前言\r搭个博客各种问题改来改去好麻烦，简单记录一下做到目前这个程度的路径吧。 使用Hugo本地建站\r什么是Hugo\rHugo是由 Go 语言实现的静态网站生成器。简单、易用、高效、易扩展、快速部署。 下面内容参考hugo官网的quick start Hugo本地安装\r可以参考官方文档,我是win11系统，这里使用Chocolatey安装了hugo的拓展版本: choco install hugo-extended Chocolatey 是一个流行的软件包管理器，主要用于 Windows 操作系统。它受到 Linux 和 Mac 系统中已有的包管理工具（如 apt、yum 和 Homebrew）的启发，旨在简化在 Windows 平台上安装和更新软件的过程。这个可以自行学习使用。 安装完成后，输入以下命令检查hugo版本： hugo version 使用hugo创建博客\r输入下列指令以创建博客项目： hugo new site [项目名称] 该命令会在目录下创建博客项目文件夹，输入指令将其该为当前根目录 cd [项目名称] 这里我是用的主题是stack，将其克隆到themes文件夹 git submodule add https://github.com/CaiJimmy/hugo-theme-stack/ themes/hugo-theme-stack 在网站配置文件夹hugo.toml文件后追加一行，指向当前主题 theme = &#39;主题文件夹名称&#39; 启动Hugo的开发服务器查看站点 hugo server 如果运行成功，提示的倒数第二行会显示本地服务器地址，打开即可看到你部署的网页。 按Ctrl + C停止运行 Stack主题美化\rStack是hugo中的一个主题，详细配置可以参考Stack中文文档 编写博客\r使用hugo创建文章\r在博客根目录下运行创建新博客文章: hugo new post/untitled.md 比起直接新建.md文件，使用hugo创建可以自动填充Front Matter模板，模板可以在\\archetypes\\default.md中找到并修改 添加图片\r众所周知.md文件是不存储图片的，想在文章中存储图片有三种方式: 一种是将图片添加到assets/img中然后引用，这样编译后图片会存储在网站根目录以供调用，缺点是编写时没法查看图片，全凭感觉。 还可以在创建博客时多建一层，使文件夹结构如下">
+<meta name="twitter:description" content="前言\r搭个博客各种问题改来改去好麻烦，简单记录一下做到目前这个程度的路径吧。 使用Hugo本地建站\r什么是Hugo\rHugo是由 Go 语言实现的静态网站生成器。简单、易用、高效、易扩展、快速部署。 下面内容参考hugo官网的quick start Hugo本地安装\r可以参考官方文档,我是win11系统，这里使用Chocolatey安装了hugo的拓展版本: choco install hugo-extended Chocolatey 是一个流行的软件包管理器，主要用于 Windows 操作系统。它受到 Linux 和 Mac 系统中已有的包管理工具（如 apt、yum 和 Homebrew）的启发，旨在简化在 Windows 平台上安装和更新软件的过程。这个可以自行学习使用。 安装完成后，输入以下命令检查hugo版本： hugo version 使用hugo创建博客\r输入下列指令以创建博客项目： hugo new site [项目名称] 该命令会在目录下创建博客项目文件夹，输入指令将其该为当前根目录 cd [项目名称] 这里我是用的主题是stack，将其克隆到themes文件夹 git submodule add https://github.com/CaiJimmy/hugo-theme-stack/ themes/hugo-theme-stack 在网站配置文件夹hugo.toml文件后追加一行，指向当前主题 theme = &#39;主题文件夹名称&#39; 启动Hugo的开发服务器查看站点 hugo server 如果运行成功，提示的倒数第二行会显示本地服务器地址，打开即可看到你部署的网页。 按Ctrl + C停止运行 Stack主题美化\rStack是hugo中的一个主题，详细配置可以参考Stack中文文档 编写博客\r使用hugo创建文章\r在博客根目录下运行创建新博客文章: hugo new post/untitled.md 比起直接新建.md文件，使用hugo创建可以自动填充Front Matter模板，模板可以在\\archetypes\\default.md中找到并修改 添加图片\r众所周知.md文件是不存储图片的，想在文章中存储图片有三种方式: 一种是将图片添加到assets/img中然后引用，这样编译后图片会存储在网站根目录以供调用，缺点是编写时没法查看图片，全凭感觉。"><meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content='http://localhost:1313/cover.png' />
     <link rel="shortcut icon" href="/img/avatar.png" />
 
   
@@ -257,8 +258,16 @@
 
 
             <main class="main full-width">
-    <article class="main-article">
+    <article class="has-image main-article">
     <header class="article-header">
+        <div class="article-image">
+            <a href="/post/%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/">
+                
+                    <img src="/cover.png" loading="lazy" alt="Featured image of post 使用hugo搭建博客" />
+                
+            </a>
+        </div>
+    
 
     <div class="article-details">
     
@@ -325,7 +334,17 @@
     <section class="article-content">
     
     
-    <h2 id="前言">前言
+    <p><img src="/cover.png"
+	
+	
+	
+	loading="lazy"
+	
+		alt="???"
+	
+	
+></p>
+<h2 id="前言">前言
 </h2><p>搭个博客各种问题改来改去好麻烦，简单记录一下做到目前这个程度的路径吧。</p>
 <h2 id="使用hugo本地建站">使用Hugo本地建站
 </h2><h3 id="什么是hugo">什么是Hugo
