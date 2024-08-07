@@ -8,21 +8,11 @@
         <language>en-us</language>
         <lastBuildDate>Tue, 06 Aug 2024 19:39:48 +0800</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>使用hugo搭建博客</title>
-        <link>http://localhost:1313/post/%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</link>
+        <link>http://localhost:1313/post/%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</link>
         <pubDate>Tue, 06 Aug 2024 19:39:48 +0800</pubDate>
         
-        <guid>http://localhost:1313/post/%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</guid>
-        <description>&lt;img src="http://localhost:1313/cover.png" alt="Featured image of post 使用hugo搭建博客" /&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/cover.png&#34;
-	
-	
-	
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;???&#34;
-	
-	
-&gt;&lt;/p&gt;
-&lt;h2 id=&#34;前言&#34;&gt;前言
+        <guid>http://localhost:1313/post/%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</guid>
+        <description>&lt;img src="http://localhost:1313/post/%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/cover.png" alt="Featured image of post 使用hugo搭建博客" /&gt;&lt;h2 id=&#34;前言&#34;&gt;前言
 &lt;/h2&gt;&lt;p&gt;搭个博客各种问题改来改去好麻烦，简单记录一下做到目前这个程度的路径吧。&lt;/p&gt;
 &lt;h2 id=&#34;使用hugo本地建站&#34;&gt;使用Hugo本地建站
 &lt;/h2&gt;&lt;h3 id=&#34;什么是hugo&#34;&gt;什么是Hugo
@@ -62,7 +52,7 @@
     &gt;Front Matter&lt;/a&gt;模板，模板可以在&lt;code&gt;\archetypes\default.md&lt;/code&gt;中找到并修改&lt;/p&gt;
 &lt;h3 id=&#34;添加图片&#34;&gt;添加图片
 &lt;/h3&gt;&lt;p&gt;众所周知&lt;code&gt;.md&lt;/code&gt;文件是不存储图片的，想在文章中存储图片有三种方式:&lt;/p&gt;
-&lt;p&gt;一种是将图片添加到assets/img中然后引用，这样编译后图片会存储在网站根目录以供调用，缺点是编写时没法查看图片，全凭感觉。&lt;/p&gt;
+&lt;p&gt;一种是将图片添加到静态资源中然后引用，这样编译后图片会存储在网站根目录以供调用，缺点是编写时没法查看图片，全凭感觉。&lt;/p&gt;
 &lt;p&gt;还可以在创建博客时多建一层，使文件夹结构如下&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;post&lt;/li&gt;
@@ -75,7 +65,7 @@
 &lt;ul&gt;
 &lt;li&gt;
 &lt;ul&gt;
-&lt;li&gt;newBlog.md&lt;/li&gt;
+&lt;li&gt;index.md&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
