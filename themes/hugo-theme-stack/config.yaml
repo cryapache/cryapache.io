@@ -158,3 +158,12 @@ params:
             enabled: true
         content:
             enabled: true
+menu:
+    main: []
+
+    social:
+        - identifier: github
+          name: GitHub
+          url: https://github.com/cryapache
+          params:
+              icon: brand-github
