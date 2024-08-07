@@ -21,7 +21,7 @@ params:
     sidebar:
         compact: false
         emoji:👻
-        subtitle:
+        subtitle: 墨因梦启
         avatar:
             enabled: true
             local: true
@@ -119,20 +119,13 @@ params:
             host:
             id:
 
-    widgets: 
-      homepage: 
-         - type: search 
-         - type: archives 
-           params: 
-               limit: 5 
-         - type: categories 
-           params: 
-               limit: 10 
-         - type: tag-cloud 
-           params: 
-               limit: 10 
-      page: 
-         - type: toc 
+    widgets:
+        enabled:
+            - search
+            - toc
+            - categories
+            - archives
+            - tag-cloud
 
     opengraph:
         twitter:

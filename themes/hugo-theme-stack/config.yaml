@@ -8,7 +8,7 @@ params:
         - post
     featuredImageField: image
     rssFullContent: true
-    favicon:
+    favicon: img/avatar.png
 
     footer:
         since:
@@ -20,8 +20,8 @@ params:
 
     sidebar:
         compact: false
-        emoji:
-        subtitle:
+        emoji: 👻
+        subtitle: 功不唐捐，玉汝如成
         avatar:
             enabled: true
             local: true
@@ -37,8 +37,8 @@ params:
             default: Licensed under CC BY-NC-SA 4.0
 
     comments:
-        enabled: false
-        provider: disqus
+        enabled: true
+        provider: waline
 
         disqusjs:
             shortname:
@@ -73,18 +73,18 @@ params:
 
         # Waline client configuration see: https://waline.js.org/en/reference/client/props.html
         waline:
-            serverURL:
-            lang:
-            visitor:
+            serverURL: https://cryapacheio-comments-ai615uxyf-cryapaches-projects.vercel.app/
+            lang: zh-CN
+            visitor: false
             avatar:
             emoji:
                 - https://cdn.jsdelivr.net/gh/walinejs/emojis/weibo
             requiredMeta:
-                - nick
+                - name
                 - mail
             locale:
                 admin: Admin
-                placeholder:
+                placeholder: 欢迎留下宝贵的评论
 
         twikoo:
             envId:
@@ -118,8 +118,19 @@ params:
             id:
 
     widgets:
-        homepage: []
-        page: []
+        homepage:
+            - type: search
+            - type: archives
+              params:
+                  limit: 5
+            - type: categories
+              params:
+                  limit: 10
+            - type: tag-cloud
+              params:
+                  limit: 10
+        page:
+            - type: toc
 
     opengraph:
         twitter:
