@@ -6,7 +6,68 @@
         <description>Recent content on 墨因梦启</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Tue, 06 Aug 2024 19:39:48 +0800</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 05 Dec 2024 17:04:52 +0800</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Lingo使用的一些笔记</title>
+        <link>http://localhost:1313/post/lingo%E4%BD%BF%E7%94%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E7%AC%94%E8%AE%B0/</link>
+        <pubDate>Thu, 05 Dec 2024 17:04:52 +0800</pubDate>
+        
+        <guid>http://localhost:1313/post/lingo%E4%BD%BF%E7%94%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E7%AC%94%E8%AE%B0/</guid>
+        <description>&lt;h2 id=&#34;lingo主要作用&#34;&gt;Lingo主要作用
+&lt;/h2&gt;&lt;p&gt;快速求解线性规划、非线性规划、线性和非线性方程组等&lt;/p&gt;
+&lt;h3 id=&#34;简单线性问题求解&#34;&gt;简单线性问题求解
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/post/lingo%E4%BD%BF%E7%94%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E7%AC%94%E8%AE%B0/img1.png&#34;
+	width=&#34;456&#34;
+	height=&#34;263&#34;
+	srcset=&#34;http://localhost:1313/post/lingo%E4%BD%BF%E7%94%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E7%AC%94%E8%AE%B0/img1_hu2449924226468297428.png 480w, http://localhost:1313/post/lingo%E4%BD%BF%E7%94%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E7%AC%94%E8%AE%B0/img1_hu8448896250631527395.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;alt text&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;173&#34;
+		data-flex-basis=&#34;416px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;这样的题目直接复述即可&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/post/lingo%E4%BD%BF%E7%94%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E7%AC%94%E8%AE%B0/img2.png&#34;
+	width=&#34;448&#34;
+	height=&#34;156&#34;
+	srcset=&#34;http://localhost:1313/post/lingo%E4%BD%BF%E7%94%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E7%AC%94%E8%AE%B0/img2_hu15117185323353959619.png 480w, http://localhost:1313/post/lingo%E4%BD%BF%E7%94%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E7%AC%94%E8%AE%B0/img2_hu15247678306568672354.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;alt text&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;287&#34;
+		data-flex-basis=&#34;689px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;结果如下&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/post/lingo%E4%BD%BF%E7%94%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E7%AC%94%E8%AE%B0/img3.png&#34;
+	width=&#34;555&#34;
+	height=&#34;581&#34;
+	srcset=&#34;http://localhost:1313/post/lingo%E4%BD%BF%E7%94%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E7%AC%94%E8%AE%B0/img3_hu675485515010810757.png 480w, http://localhost:1313/post/lingo%E4%BD%BF%E7%94%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E7%AC%94%E8%AE%B0/img3_hu14340351527192498826.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;alt text&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;95&#34;
+		data-flex-basis=&#34;229px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;语法&#34;&gt;语法
+&lt;/h2&gt;&lt;h2 id=&#34;一些小点&#34;&gt;一些小点
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;LINGO中各变量默认是非负的&lt;/li&gt;
+&lt;li&gt;偶尔莫名其妙出现的model报错，重启lingo后又没有了&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        <item>
         <title>使用hugo搭建博客</title>
         <link>http://localhost:1313/post/%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</link>
         <pubDate>Tue, 06 Aug 2024 19:39:48 +0800</pubDate>
