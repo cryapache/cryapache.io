@@ -60,11 +60,58 @@
 	
 &gt;&lt;/p&gt;
 &lt;h2 id=&#34;语法&#34;&gt;语法
-&lt;/h2&gt;&lt;h2 id=&#34;一些小点&#34;&gt;一些小点
-&lt;/h2&gt;&lt;ul&gt;
+&lt;/h2&gt;&lt;h3 id=&#34;基本用法一些小点&#34;&gt;基本用法&amp;amp;一些小点
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;lingo中数学规划模型包含目标函数、决策变量、约束条件三个要素&lt;/li&gt;
+&lt;li&gt;lingo中每一句都要用英文分号结束&lt;/li&gt;
+&lt;li&gt;以英文!开始注释，需要以英文分号结束&lt;/li&gt;
+&lt;li&gt;变量不区分字母大小写，要求以字母开头，后面可以有数字与下划线，不超过32个字符&lt;/li&gt;
+&lt;li&gt;定义好集合后的语句顺序是随意的&lt;/li&gt;
+&lt;li&gt;函数以@开头&lt;/li&gt;
 &lt;li&gt;LINGO中各变量默认是非负的&lt;/li&gt;
 &lt;li&gt;偶尔莫名其妙出现的model报错，重启lingo后又没有了&lt;/li&gt;
 &lt;/ul&gt;
+&lt;h3 id=&#34;集合&#34;&gt;集合
+&lt;/h3&gt;&lt;p&gt;集合部分的语法为&lt;br&gt;
+sets:&lt;br&gt;
+集合名称1/成员列表1/：属性1_1，属性1_2，…，属性1_n1；&lt;br&gt;
+集合名称2/成员列表2/：属性2_1，属性2_2，…，属性2_n2；&lt;br&gt;
+派生集合名称（集合名称1，集合名称2）：属性3_1，…，属性3_n3；&lt;br&gt;
+endsets&lt;/p&gt;
+&lt;p&gt;eg:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-lingo&#34; data-lang=&#34;lingo&#34;&gt;SETS:
+    PRODUCTS /Prod1, Prod2, Prod3/: Profit;
+    MACHINES /Mach1, Mach2, Mach3/: TimeAvailable;
+    LINKS(PRODUCTS, MACHINES): TimeRequired;
+ENDSETS
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;数据&#34;&gt;数据
+&lt;/h3&gt;&lt;p&gt;数据部分的语法为&lt;br&gt;
+data:&lt;br&gt;
+属性1 = 数据列表;&lt;br&gt;
+属性2 = 数据列表;&lt;br&gt;
+enddata&lt;/p&gt;
+&lt;p&gt;eg:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-lingo&#34; data-lang=&#34;lingo&#34;&gt;DATA:
+Profit = 300, 500, 200;
+TimeAvailable = 40, 60, 50;
+TimeRequired = 
+    1.5, 2.0, 1.0,
+    1.0, 1.5, 2.0,
+    2.0, 1.0, 1.5;
+ENDDATA
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;函数&#34;&gt;函数
+&lt;/h3&gt;&lt;h4 id=&#34;算术运算符&#34;&gt;算术运算符
+&lt;/h4&gt;&lt;p&gt;加减乘除乘方分别为&lt;code&gt;+&lt;/code&gt; &lt;code&gt;-&lt;/code&gt; &lt;code&gt;*&lt;/code&gt; &lt;code&gt;/&lt;/code&gt; &lt;code&gt;^&lt;/code&gt;&lt;/p&gt;
+&lt;h4 id=&#34;逻辑运算符&#34;&gt;逻辑运算符
+&lt;/h4&gt;&lt;p&gt;#not# 否定该操作数的逻辑值，＃not＃是一个一元运算符。&lt;br&gt;
+#eq# 若两个运算数相等，则为 true；否则为 false。&lt;br&gt;
+#ne# 若两个运算符不相等，则为 true；否则为 false。&lt;br&gt;
+#gt# 若左边的运算符严格大于右边的运算符，则为 true；否则为 false。&lt;br&gt;
+#ge# 若左边的运算符大于或等于右边的运算符，则为 true；否则为 false。&lt;br&gt;
+#lt# 若左边的运算符严格小于右边的运算符，则为 true；否则为 false。&lt;br&gt;
+#le# 若左边的运算符小于或等于右边的运算符，则为 true；否则为 false。&lt;br&gt;
+#and# 仅当两个参数都为 true 时，结果为 true；否则为 false。&lt;br&gt;
+#or# 仅当两个参数都为 false 时，结果为 false；否则为 true。&lt;/p&gt;
 </description>
         </item>
         <item>

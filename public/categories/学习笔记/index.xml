@@ -6,7 +6,115 @@
         <description>Recent content in 学习笔记 on 墨因梦启</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Tue, 06 Aug 2024 19:39:48 +0800</lastBuildDate><atom:link href="http://localhost:1313/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Thu, 05 Dec 2024 17:04:52 +0800</lastBuildDate><atom:link href="http://localhost:1313/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Lingo使用的一些笔记</title>
+        <link>http://localhost:1313/post/lingo%E4%BD%BF%E7%94%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E7%AC%94%E8%AE%B0/</link>
+        <pubDate>Thu, 05 Dec 2024 17:04:52 +0800</pubDate>
+        
+        <guid>http://localhost:1313/post/lingo%E4%BD%BF%E7%94%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E7%AC%94%E8%AE%B0/</guid>
+        <description>&lt;h2 id=&#34;lingo主要作用&#34;&gt;Lingo主要作用
+&lt;/h2&gt;&lt;p&gt;快速求解线性规划、非线性规划、线性和非线性方程组等&lt;/p&gt;
+&lt;h3 id=&#34;简单线性问题求解&#34;&gt;简单线性问题求解
+&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/post/lingo%E4%BD%BF%E7%94%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E7%AC%94%E8%AE%B0/img1.png&#34;
+	width=&#34;456&#34;
+	height=&#34;263&#34;
+	srcset=&#34;http://localhost:1313/post/lingo%E4%BD%BF%E7%94%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E7%AC%94%E8%AE%B0/img1_hu2449924226468297428.png 480w, http://localhost:1313/post/lingo%E4%BD%BF%E7%94%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E7%AC%94%E8%AE%B0/img1_hu8448896250631527395.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;alt text&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;173&#34;
+		data-flex-basis=&#34;416px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;这样的题目直接复述即可&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/post/lingo%E4%BD%BF%E7%94%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E7%AC%94%E8%AE%B0/img2.png&#34;
+	width=&#34;448&#34;
+	height=&#34;156&#34;
+	srcset=&#34;http://localhost:1313/post/lingo%E4%BD%BF%E7%94%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E7%AC%94%E8%AE%B0/img2_hu15117185323353959619.png 480w, http://localhost:1313/post/lingo%E4%BD%BF%E7%94%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E7%AC%94%E8%AE%B0/img2_hu15247678306568672354.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;alt text&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;287&#34;
+		data-flex-basis=&#34;689px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;p&gt;结果如下&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/post/lingo%E4%BD%BF%E7%94%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E7%AC%94%E8%AE%B0/img3.png&#34;
+	width=&#34;555&#34;
+	height=&#34;581&#34;
+	srcset=&#34;http://localhost:1313/post/lingo%E4%BD%BF%E7%94%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E7%AC%94%E8%AE%B0/img3_hu675485515010810757.png 480w, http://localhost:1313/post/lingo%E4%BD%BF%E7%94%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E7%AC%94%E8%AE%B0/img3_hu14340351527192498826.png 1024w&#34;
+	loading=&#34;lazy&#34;
+	
+		alt=&#34;alt text&#34;
+	
+	
+		class=&#34;gallery-image&#34; 
+		data-flex-grow=&#34;95&#34;
+		data-flex-basis=&#34;229px&#34;
+	
+&gt;&lt;/p&gt;
+&lt;h2 id=&#34;语法&#34;&gt;语法
+&lt;/h2&gt;&lt;h3 id=&#34;基本用法一些小点&#34;&gt;基本用法&amp;amp;一些小点
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;lingo中数学规划模型包含目标函数、决策变量、约束条件三个要素&lt;/li&gt;
+&lt;li&gt;lingo中每一句都要用英文分号结束&lt;/li&gt;
+&lt;li&gt;以英文!开始注释，需要以英文分号结束&lt;/li&gt;
+&lt;li&gt;变量不区分字母大小写，要求以字母开头，后面可以有数字与下划线，不超过32个字符&lt;/li&gt;
+&lt;li&gt;定义好集合后的语句顺序是随意的&lt;/li&gt;
+&lt;li&gt;函数以@开头&lt;/li&gt;
+&lt;li&gt;LINGO中各变量默认是非负的&lt;/li&gt;
+&lt;li&gt;偶尔莫名其妙出现的model报错，重启lingo后又没有了&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;集合&#34;&gt;集合
+&lt;/h3&gt;&lt;p&gt;集合部分的语法为&lt;br&gt;
+sets:&lt;br&gt;
+集合名称1/成员列表1/：属性1_1，属性1_2，…，属性1_n1；&lt;br&gt;
+集合名称2/成员列表2/：属性2_1，属性2_2，…，属性2_n2；&lt;br&gt;
+派生集合名称（集合名称1，集合名称2）：属性3_1，…，属性3_n3；&lt;br&gt;
+endsets&lt;/p&gt;
+&lt;p&gt;eg:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-lingo&#34; data-lang=&#34;lingo&#34;&gt;SETS:
+    PRODUCTS /Prod1, Prod2, Prod3/: Profit;
+    MACHINES /Mach1, Mach2, Mach3/: TimeAvailable;
+    LINKS(PRODUCTS, MACHINES): TimeRequired;
+ENDSETS
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;数据&#34;&gt;数据
+&lt;/h3&gt;&lt;p&gt;数据部分的语法为&lt;br&gt;
+data:&lt;br&gt;
+属性1 = 数据列表;&lt;br&gt;
+属性2 = 数据列表;&lt;br&gt;
+enddata&lt;/p&gt;
+&lt;p&gt;eg:&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-lingo&#34; data-lang=&#34;lingo&#34;&gt;DATA:
+Profit = 300, 500, 200;
+TimeAvailable = 40, 60, 50;
+TimeRequired = 
+    1.5, 2.0, 1.0,
+    1.0, 1.5, 2.0,
+    2.0, 1.0, 1.5;
+ENDDATA
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;函数&#34;&gt;函数
+&lt;/h3&gt;&lt;h4 id=&#34;算术运算符&#34;&gt;算术运算符
+&lt;/h4&gt;&lt;p&gt;加减乘除乘方分别为&lt;code&gt;+&lt;/code&gt; &lt;code&gt;-&lt;/code&gt; &lt;code&gt;*&lt;/code&gt; &lt;code&gt;/&lt;/code&gt; &lt;code&gt;^&lt;/code&gt;&lt;/p&gt;
+&lt;h4 id=&#34;逻辑运算符&#34;&gt;逻辑运算符
+&lt;/h4&gt;&lt;p&gt;#not# 否定该操作数的逻辑值，＃not＃是一个一元运算符。&lt;br&gt;
+#eq# 若两个运算数相等，则为 true；否则为 false。&lt;br&gt;
+#ne# 若两个运算符不相等，则为 true；否则为 false。&lt;br&gt;
+#gt# 若左边的运算符严格大于右边的运算符，则为 true；否则为 false。&lt;br&gt;
+#ge# 若左边的运算符大于或等于右边的运算符，则为 true；否则为 false。&lt;br&gt;
+#lt# 若左边的运算符严格小于右边的运算符，则为 true；否则为 false。&lt;br&gt;
+#le# 若左边的运算符小于或等于右边的运算符，则为 true；否则为 false。&lt;br&gt;
+#and# 仅当两个参数都为 true 时，结果为 true；否则为 false。&lt;br&gt;
+#or# 仅当两个参数都为 false 时，结果为 false；否则为 true。&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>使用hugo搭建博客</title>
         <link>http://localhost:1313/post/%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</link>
         <pubDate>Tue, 06 Aug 2024 19:39:48 +0800</pubDate>
