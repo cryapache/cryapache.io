@@ -6,7 +6,25 @@
         <description>Recent content in Posts on 墨因梦启</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Thu, 05 Dec 2024 17:04:52 +0800</lastBuildDate><atom:link href="http://localhost:1313/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Mon, 09 Dec 2024 22:41:54 +0800</lastBuildDate><atom:link href="http://localhost:1313/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Java 多线程</title>
+        <link>http://localhost:1313/post/java-%E5%A4%9A%E7%BA%BF%E7%A8%8B/</link>
+        <pubDate>Mon, 09 Dec 2024 22:41:54 +0800</pubDate>
+        
+        <guid>http://localhost:1313/post/java-%E5%A4%9A%E7%BA%BF%E7%A8%8B/</guid>
+        <description>&lt;h2 id=&#34;进程与线程&#34;&gt;进程与线程
+&lt;/h2&gt;&lt;h4 id=&#34;进程&#34;&gt;进程
+&lt;/h4&gt;&lt;p&gt;一个在内存中运行的应用程序。每个进程都有自己独立的一块内存空间，一个进程可以有多个线程，比如在Windows系统中，一个运行的xx.exe就是一个进程。&lt;/p&gt;
+&lt;h4 id=&#34;线程&#34;&gt;线程
+&lt;/h4&gt;&lt;p&gt;线程是进程中的一个执行单元，负责当前进程中程序的执行，一个进程中至少有一个线程。一个进程中的多个线程共享进程中的全部资源。&lt;/p&gt;
+&lt;h4 id=&#34;区别&#34;&gt;区别
+&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;进程是资源分配的基本单位，线程是CPU调度的基本单位。&lt;/li&gt;
+&lt;li&gt;进程有自己独立的地址空间，每启动一个进程，系统就会为它分配地址空间，建立数据表来维护代码段、堆栈段和数据段，线程没有独立的地址空间，它使用相同的地址空间共享数据。&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+        </item>
+        <item>
         <title>Lingo使用的一些笔记</title>
         <link>http://localhost:1313/post/lingo%E4%BD%BF%E7%94%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E7%AC%94%E8%AE%B0/</link>
         <pubDate>Thu, 05 Dec 2024 17:04:52 +0800</pubDate>
@@ -14,8 +32,8 @@
         <guid>http://localhost:1313/post/lingo%E4%BD%BF%E7%94%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E7%AC%94%E8%AE%B0/</guid>
         <description>&lt;h2 id=&#34;lingo主要作用&#34;&gt;Lingo主要作用
 &lt;/h2&gt;&lt;p&gt;快速求解线性规划、非线性规划、线性和非线性方程组等&lt;/p&gt;
-&lt;h3 id=&#34;简单线性问题求解&#34;&gt;简单线性问题求解
-&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/post/lingo%E4%BD%BF%E7%94%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E7%AC%94%E8%AE%B0/img1.png&#34;
+&lt;h2 id=&#34;简单线性问题求解&#34;&gt;简单线性问题求解
+&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/post/lingo%E4%BD%BF%E7%94%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E7%AC%94%E8%AE%B0/img1.png&#34;
 	width=&#34;456&#34;
 	height=&#34;263&#34;
 	srcset=&#34;http://localhost:1313/post/lingo%E4%BD%BF%E7%94%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E7%AC%94%E8%AE%B0/img1_hu2449924226468297428.png 480w, http://localhost:1313/post/lingo%E4%BD%BF%E7%94%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E7%AC%94%E8%AE%B0/img1_hu8448896250631527395.png 1024w&#34;
@@ -112,6 +130,31 @@ ENDDATA
 #le# 若左边的运算符小于或等于右边的运算符，则为 true；否则为 false。&lt;br&gt;
 #and# 仅当两个参数都为 true 时，结果为 true；否则为 false。&lt;br&gt;
 #or# 仅当两个参数都为 false 时，结果为 false；否则为 true。&lt;/p&gt;
+&lt;h4 id=&#34;常见数学函数&#34;&gt;常见数学函数
+&lt;/h4&gt;&lt;p&gt;@abs(x)返回 x 的绝对值。&lt;br&gt;
+@sin(x)返回 x 的正弦值，x 采用弧度制。&lt;br&gt;
+@cos(x)返回 x 的余弦值。&lt;br&gt;
+@tan(x)返回 x 的正切值。&lt;br&gt;
+@exp(x)返回常数 e 的 x 次方。&lt;br&gt;
+@log(x)返回 x 的自然对数。&lt;br&gt;
+@lgm(x)返回 x 的 gamma 函数的自然对数。&lt;br&gt;
+@mod(x,y)返回 x 除以 y 的余数。&lt;br&gt;
+@sign(x)如果 x0 时返回 1，当 x=0 时返回 0。&lt;br&gt;
+@floor(x)返回 x 的整数部分。当 x&amp;gt;=0 时，返回不超过 x 的最大整数；当 x&amp;lt;0 时，返回 不低于 x 的最大整数。&lt;br&gt;
+@smax(x1,x2,…,xn)返回 x1，x2，…，xn 中的最大值。&lt;br&gt;
+@smin(x1,x2,…,xn)返回 x1，x2，…，xn 中的最小值。&lt;/p&gt;
+&lt;h4 id=&#34;变量界定函数&#34;&gt;变量界定函数
+&lt;/h4&gt;&lt;p&gt;变量界定函数实现对变量取值范围的附加限制，共 4 种&lt;/p&gt;
+&lt;p&gt;@bin(x)限制 x 为 0 或 1；&lt;br&gt;
+@bnd(L,x,U)限制 L≤x≤U；&lt;br&gt;
+@free(x)取消对变量 x 的默认下界为 0 的限制，即 x 可以取任意实数；&lt;br&gt;
+@gin(x)限制 x 为整数。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;在默认情况下，LINGO 规定变量是非负的，也就是说下界为 0，上界为+∞。@free 取 消了默认的下界为 0 的限制，使变量也可以取负值。@bnd 用于设定一个变量的上下界,也可以取消默认下界为 0 的约束。
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;级循环函数&#34;&gt;级循环函数
+&lt;/h4&gt;&lt;p&gt;@for：该函数用来产生对集成员的约束。&lt;/p&gt;
+&lt;p&gt;@sum：该函数返回遍历指定的集成员的一个表达式的和。&lt;/p&gt;
+&lt;p&gt;@min 和@max：返回指定的集成员的一个表达式的最小值或最大值。&lt;/p&gt;
 </description>
         </item>
         <item>
@@ -190,15 +233,6 @@ ENDDATA
 &lt;/ul&gt;
 &lt;p&gt;这样则可以通过相对路径调用图片&lt;/p&gt;
 &lt;p&gt;还有就是通过图床来调用，这个可以稍后再学&lt;/p&gt;
-</description>
-        </item>
-        <item>
-        <title>Bolgtest</title>
-        <link>http://localhost:1313/post/bolgtest/</link>
-        <pubDate>Tue, 06 Aug 2024 19:14:51 +0800</pubDate>
-        
-        <guid>http://localhost:1313/post/bolgtest/</guid>
-        <description>&lt;p&gt;test blog&lt;/p&gt;
 </description>
         </item>
         

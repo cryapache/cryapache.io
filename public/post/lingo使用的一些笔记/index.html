@@ -231,11 +231,8 @@
         <div class="widget--toc">
             <nav id="TableOfContents">
   <ul>
-    <li><a href="#lingo主要作用">Lingo主要作用</a>
-      <ul>
-        <li><a href="#简单线性问题求解">简单线性问题求解</a></li>
-      </ul>
-    </li>
+    <li><a href="#lingo主要作用">Lingo主要作用</a></li>
+    <li><a href="#简单线性问题求解">简单线性问题求解</a></li>
     <li><a href="#语法">语法</a>
       <ul>
         <li><a href="#基本用法一些小点">基本用法&amp;一些小点</a></li>
@@ -325,8 +322,8 @@
     
     <h2 id="lingo主要作用">Lingo主要作用
 </h2><p>快速求解线性规划、非线性规划、线性和非线性方程组等</p>
-<h3 id="简单线性问题求解">简单线性问题求解
-</h3><p><img src="/post/lingo%E4%BD%BF%E7%94%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E7%AC%94%E8%AE%B0/img1.png"
+<h2 id="简单线性问题求解">简单线性问题求解
+</h2><p><img src="/post/lingo%E4%BD%BF%E7%94%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E7%AC%94%E8%AE%B0/img1.png"
 	width="456"
 	height="263"
 	srcset="/post/lingo%E4%BD%BF%E7%94%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E7%AC%94%E8%AE%B0/img1_hu2449924226468297428.png 480w, /post/lingo%E4%BD%BF%E7%94%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E7%AC%94%E8%AE%B0/img1_hu8448896250631527395.png 1024w"
@@ -423,6 +420,31 @@ ENDDATA
 #le# 若左边的运算符小于或等于右边的运算符，则为 true；否则为 false。<br>
 #and# 仅当两个参数都为 true 时，结果为 true；否则为 false。<br>
 #or# 仅当两个参数都为 false 时，结果为 false；否则为 true。</p>
+<h4 id="常见数学函数">常见数学函数
+</h4><p>@abs(x)返回 x 的绝对值。<br>
+@sin(x)返回 x 的正弦值，x 采用弧度制。<br>
+@cos(x)返回 x 的余弦值。<br>
+@tan(x)返回 x 的正切值。<br>
+@exp(x)返回常数 e 的 x 次方。<br>
+@log(x)返回 x 的自然对数。<br>
+@lgm(x)返回 x 的 gamma 函数的自然对数。<br>
+@mod(x,y)返回 x 除以 y 的余数。<br>
+@sign(x)如果 x0 时返回 1，当 x=0 时返回 0。<br>
+@floor(x)返回 x 的整数部分。当 x&gt;=0 时，返回不超过 x 的最大整数；当 x&lt;0 时，返回 不低于 x 的最大整数。<br>
+@smax(x1,x2,…,xn)返回 x1，x2，…，xn 中的最大值。<br>
+@smin(x1,x2,…,xn)返回 x1，x2，…，xn 中的最小值。</p>
+<h4 id="变量界定函数">变量界定函数
+</h4><p>变量界定函数实现对变量取值范围的附加限制，共 4 种</p>
+<p>@bin(x)限制 x 为 0 或 1；<br>
+@bnd(L,x,U)限制 L≤x≤U；<br>
+@free(x)取消对变量 x 的默认下界为 0 的限制，即 x 可以取任意实数；<br>
+@gin(x)限制 x 为整数。</p>
+<pre><code>在默认情况下，LINGO 规定变量是非负的，也就是说下界为 0，上界为+∞。@free 取 消了默认的下界为 0 的限制，使变量也可以取负值。@bnd 用于设定一个变量的上下界,也可以取消默认下界为 0 的约束。
+</code></pre>
+<h4 id="级循环函数">级循环函数
+</h4><p>@for：该函数用来产生对集成员的约束。</p>
+<p>@sum：该函数返回遍历指定的集成员的一个表达式的和。</p>
+<p>@min 和@max：返回指定的集成员的一个表达式的最小值或最大值。</p>
 
 </section>
 
