@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="en-us" dir="ltr">
     <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="进程与线程\r进程\r一个在内存中运行的应用程序。每个进程都有自己独立的一块内存空间，一个进程可以有多个线程，比如在Windows系统中，一个运行的xx.exe就是一个进程。 线程\r线程是进程中的一个执行单元，负责当前进程中程序的执行，一个进程中至少有一个线程。一个进程中的多个线程共享进程中的全部资源。 区别\r进程是资源分配的基本单位，线程是CPU调度的基本单位。 进程有自己独立的地址空间，每启动一个进程，系统就会为它分配地址空间，建立数据表来维护代码段、堆栈段和数据段，线程没有独立的地址空间，它使用相同的地址空间共享数据。 ">
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="进程与线程\r进程\r一个在内存中运行的应用程序。每个进程都有自己独立的一块内存空间，一个进程可以有多个线程，比如在Windows系统中，一个运行的xx.exe就是一个进程。 线程\r线程是进程中的一个执行单元，负责当前进程中程序的执行，一个进程中至少有一个线程。一个进程中的多个线程共享进程中的全部资源。 区别\r进程是资源分配的基本单位，线程是CPU调度的基本单位。 进程有自己独立的地址空间，每启动一个进程，系统就会为它分配地址空间，建立数据表来维护代码段、堆栈段和数据段，线程没有独立的地址空间，它使用相同的地址空间共享数据。 多线程的优点\r提高CPU利用率 多线程可以充分利用多核处理器的能力，使不同的线程在不同的核心上并行运行，从而提高了CPU的利用率。 响应性 对于需要保持用户界面响应的应用（如图形用户界面应用程序），多线程可以让一部分线程处理用户输入，而其他线程进行后台计算或其他任务，这样可以确保应用程序对用户的操作及时作出反应。 简化程序结构 通过将复杂任务分解成更小、更易于管理的线程，可以简化程序的设计和实现。 资源共享 同一进程内的所有线程共享内存空间和其他资源，这使得线程之间的通信和数据交换变得简单高效。 Java多线程\rjava实现多线程的原理\r多线程通过java中的java.long.Thread类来体现 通过Thread子类的run方法来执行线程的任务，通过调用Thread子类的start方法来启动线程 在 java 中，每次程序运行至少启动 2 个线程。个是 main 线程，一个是垃圾收集线程。 创建java线程\r通过继承Thread类创建线程\r//创建继承Thread类的子类 public class ThreadTest extends Thread{ @Override public void run() { //线程任务 } } //使用start方法启动线程 public class Main{ public static void main(String[] args) { ThreadTest threadTest = new ThreadTest(); threadTest.start(); } } run方法不会启动线程，不会分配新的分支栈 start方法可以用于启动一个分支线程，启动成功的线程会自动调用run方法，实现其中的线程任务 start方法调用后并非立即执行多线程代码，而是使其变为可执行态，具体执行时间由操作系统决定 多线程程序乱序执行，执行顺序随机 start方法重复调用会出现java.lang.lllegaIThreadStateException异常 thread类常用方法\rstart()：启动线程，调用线程的run方法 run()：线程执行体，用于定义线程的任务 currentThread()：静态方法，返回对当前正在执行的线程对象的引用 getName()：获取当前线程的名字 setName()：设置当前线程的名字 yield()：释放当前CPU的执行权 join()：等待该线程终止 isAlive()：判断当前线程是否存活 sleep(long millis)：让当前线程“睡眠”millis毫秒 setPriority(int newPriority)：设置线程的优先级 getPriority()：获取线程的优先级 setDaemon(boolean on)：将该线程标记为守护线程或用户线程 isDaemon()：判断该线程是否为守护线程 stop()：强制停止线程（已废弃） 通过实现Runnable接口创建线程\r//创建实现Runnable接口的类 public class ThreadTest implements Runnable{ @Override public void run() { //线程任务 } } //使用Thread类来启动线程 public class Main{ public static void main(String[] args) { ThreadTest threadTest = new ThreadTest();//创建实现Runnable接口的类的对象 Thread thread = new Thread(threadTest);//创建Thread类对象，并将实现Runnable接口的类的对象作为参数传入 thread.">
 <title>Java 多线程</title>
 
 <link rel='canonical' href='http://localhost:1313/post/java-%E5%A4%9A%E7%BA%BF%E7%A8%8B/'>
 
 <link rel="stylesheet" href="/scss/style.min.e8c7fca7d1c9294aa7a4f3426c225ee26540f7d94e39be0b5a4a5c8a49ca5a25.css"><meta property='og:title' content="Java 多线程">
-<meta property='og:description' content="进程与线程\r进程\r一个在内存中运行的应用程序。每个进程都有自己独立的一块内存空间，一个进程可以有多个线程，比如在Windows系统中，一个运行的xx.exe就是一个进程。 线程\r线程是进程中的一个执行单元，负责当前进程中程序的执行，一个进程中至少有一个线程。一个进程中的多个线程共享进程中的全部资源。 区别\r进程是资源分配的基本单位，线程是CPU调度的基本单位。 进程有自己独立的地址空间，每启动一个进程，系统就会为它分配地址空间，建立数据表来维护代码段、堆栈段和数据段，线程没有独立的地址空间，它使用相同的地址空间共享数据。 ">
+<meta property='og:description' content="进程与线程\r进程\r一个在内存中运行的应用程序。每个进程都有自己独立的一块内存空间，一个进程可以有多个线程，比如在Windows系统中，一个运行的xx.exe就是一个进程。 线程\r线程是进程中的一个执行单元，负责当前进程中程序的执行，一个进程中至少有一个线程。一个进程中的多个线程共享进程中的全部资源。 区别\r进程是资源分配的基本单位，线程是CPU调度的基本单位。 进程有自己独立的地址空间，每启动一个进程，系统就会为它分配地址空间，建立数据表来维护代码段、堆栈段和数据段，线程没有独立的地址空间，它使用相同的地址空间共享数据。 多线程的优点\r提高CPU利用率 多线程可以充分利用多核处理器的能力，使不同的线程在不同的核心上并行运行，从而提高了CPU的利用率。 响应性 对于需要保持用户界面响应的应用（如图形用户界面应用程序），多线程可以让一部分线程处理用户输入，而其他线程进行后台计算或其他任务，这样可以确保应用程序对用户的操作及时作出反应。 简化程序结构 通过将复杂任务分解成更小、更易于管理的线程，可以简化程序的设计和实现。 资源共享 同一进程内的所有线程共享内存空间和其他资源，这使得线程之间的通信和数据交换变得简单高效。 Java多线程\rjava实现多线程的原理\r多线程通过java中的java.long.Thread类来体现 通过Thread子类的run方法来执行线程的任务，通过调用Thread子类的start方法来启动线程 在 java 中，每次程序运行至少启动 2 个线程。个是 main 线程，一个是垃圾收集线程。 创建java线程\r通过继承Thread类创建线程\r//创建继承Thread类的子类 public class ThreadTest extends Thread{ @Override public void run() { //线程任务 } } //使用start方法启动线程 public class Main{ public static void main(String[] args) { ThreadTest threadTest = new ThreadTest(); threadTest.start(); } } run方法不会启动线程，不会分配新的分支栈 start方法可以用于启动一个分支线程，启动成功的线程会自动调用run方法，实现其中的线程任务 start方法调用后并非立即执行多线程代码，而是使其变为可执行态，具体执行时间由操作系统决定 多线程程序乱序执行，执行顺序随机 start方法重复调用会出现java.lang.lllegaIThreadStateException异常 thread类常用方法\rstart()：启动线程，调用线程的run方法 run()：线程执行体，用于定义线程的任务 currentThread()：静态方法，返回对当前正在执行的线程对象的引用 getName()：获取当前线程的名字 setName()：设置当前线程的名字 yield()：释放当前CPU的执行权 join()：等待该线程终止 isAlive()：判断当前线程是否存活 sleep(long millis)：让当前线程“睡眠”millis毫秒 setPriority(int newPriority)：设置线程的优先级 getPriority()：获取线程的优先级 setDaemon(boolean on)：将该线程标记为守护线程或用户线程 isDaemon()：判断该线程是否为守护线程 stop()：强制停止线程（已废弃） 通过实现Runnable接口创建线程\r//创建实现Runnable接口的类 public class ThreadTest implements Runnable{ @Override public void run() { //线程任务 } } //使用Thread类来启动线程 public class Main{ public static void main(String[] args) { ThreadTest threadTest = new ThreadTest();//创建实现Runnable接口的类的对象 Thread thread = new Thread(threadTest);//创建Thread类对象，并将实现Runnable接口的类的对象作为参数传入 thread.">
 <meta property='og:url' content='http://localhost:1313/post/java-%E5%A4%9A%E7%BA%BF%E7%A8%8B/'>
 <meta property='og:site_name' content='墨因梦启'>
-<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2024-12-09T22:41:54&#43;08:00'/><meta property='article:modified_time' content='2024-12-09T22:41:54&#43;08:00'/>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Java' /><meta property='article:published_time' content='2024-12-09T22:41:54&#43;08:00'/><meta property='article:modified_time' content='2024-12-09T22:41:54&#43;08:00'/>
 <meta name="twitter:title" content="Java 多线程">
-<meta name="twitter:description" content="进程与线程\r进程\r一个在内存中运行的应用程序。每个进程都有自己独立的一块内存空间，一个进程可以有多个线程，比如在Windows系统中，一个运行的xx.exe就是一个进程。 线程\r线程是进程中的一个执行单元，负责当前进程中程序的执行，一个进程中至少有一个线程。一个进程中的多个线程共享进程中的全部资源。 区别\r进程是资源分配的基本单位，线程是CPU调度的基本单位。 进程有自己独立的地址空间，每启动一个进程，系统就会为它分配地址空间，建立数据表来维护代码段、堆栈段和数据段，线程没有独立的地址空间，它使用相同的地址空间共享数据。 ">
+<meta name="twitter:description" content="进程与线程\r进程\r一个在内存中运行的应用程序。每个进程都有自己独立的一块内存空间，一个进程可以有多个线程，比如在Windows系统中，一个运行的xx.exe就是一个进程。 线程\r线程是进程中的一个执行单元，负责当前进程中程序的执行，一个进程中至少有一个线程。一个进程中的多个线程共享进程中的全部资源。 区别\r进程是资源分配的基本单位，线程是CPU调度的基本单位。 进程有自己独立的地址空间，每启动一个进程，系统就会为它分配地址空间，建立数据表来维护代码段、堆栈段和数据段，线程没有独立的地址空间，它使用相同的地址空间共享数据。 多线程的优点\r提高CPU利用率 多线程可以充分利用多核处理器的能力，使不同的线程在不同的核心上并行运行，从而提高了CPU的利用率。 响应性 对于需要保持用户界面响应的应用（如图形用户界面应用程序），多线程可以让一部分线程处理用户输入，而其他线程进行后台计算或其他任务，这样可以确保应用程序对用户的操作及时作出反应。 简化程序结构 通过将复杂任务分解成更小、更易于管理的线程，可以简化程序的设计和实现。 资源共享 同一进程内的所有线程共享内存空间和其他资源，这使得线程之间的通信和数据交换变得简单高效。 Java多线程\rjava实现多线程的原理\r多线程通过java中的java.long.Thread类来体现 通过Thread子类的run方法来执行线程的任务，通过调用Thread子类的start方法来启动线程 在 java 中，每次程序运行至少启动 2 个线程。个是 main 线程，一个是垃圾收集线程。 创建java线程\r通过继承Thread类创建线程\r//创建继承Thread类的子类 public class ThreadTest extends Thread{ @Override public void run() { //线程任务 } } //使用start方法启动线程 public class Main{ public static void main(String[] args) { ThreadTest threadTest = new ThreadTest(); threadTest.start(); } } run方法不会启动线程，不会分配新的分支栈 start方法可以用于启动一个分支线程，启动成功的线程会自动调用run方法，实现其中的线程任务 start方法调用后并非立即执行多线程代码，而是使其变为可执行态，具体执行时间由操作系统决定 多线程程序乱序执行，执行顺序随机 start方法重复调用会出现java.lang.lllegaIThreadStateException异常 thread类常用方法\rstart()：启动线程，调用线程的run方法 run()：线程执行体，用于定义线程的任务 currentThread()：静态方法，返回对当前正在执行的线程对象的引用 getName()：获取当前线程的名字 setName()：设置当前线程的名字 yield()：释放当前CPU的执行权 join()：等待该线程终止 isAlive()：判断当前线程是否存活 sleep(long millis)：让当前线程“睡眠”millis毫秒 setPriority(int newPriority)：设置线程的优先级 getPriority()：获取线程的优先级 setDaemon(boolean on)：将该线程标记为守护线程或用户线程 isDaemon()：判断该线程是否为守护线程 stop()：强制停止线程（已废弃） 通过实现Runnable接口创建线程\r//创建实现Runnable接口的类 public class ThreadTest implements Runnable{ @Override public void run() { //线程任务 } } //使用Thread类来启动线程 public class Main{ public static void main(String[] args) { ThreadTest threadTest = new ThreadTest();//创建实现Runnable接口的类的对象 Thread thread = new Thread(threadTest);//创建Thread类对象，并将实现Runnable接口的类的对象作为参数传入 thread.">
     <link rel="shortcut icon" href="/img/avatar.png" />
 
   
@@ -234,6 +234,15 @@
     <li><a href="#进程与线程">进程与线程</a>
       <ul>
         <li></li>
+        <li><a href="#多线程的优点">多线程的优点</a></li>
+      </ul>
+    </li>
+    <li><a href="#java多线程">Java多线程</a>
+      <ul>
+        <li><a href="#java实现多线程的原理">java实现多线程的原理</a></li>
+        <li><a href="#创建java线程">创建java线程</a></li>
+        <li><a href="#线程的生命周期">线程的生命周期</a></li>
+        <li><a href="#线程调度">线程调度</a></li>
       </ul>
     </li>
   </ul>
@@ -251,6 +260,14 @@
     <header class="article-header">
 
     <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" style="background-color: #2a9d8f; color: #fff;">
+                学习笔记
+            </a>
+        
+    </header>
     
 
     <div class="article-title-wrapper">
@@ -292,7 +309,7 @@
 
 
                 <time class="article-time--reading">
-                    1 minute read
+                    2 minute read
                 </time>
             </div>
         
@@ -307,7 +324,8 @@
     <section class="article-content">
     
     
-    <h2 id="进程与线程">进程与线程
+    <hr>
+<h2 id="进程与线程">进程与线程
 </h2><h4 id="进程">进程
 </h4><p>一个在内存中运行的应用程序。每个进程都有自己独立的一块内存空间，一个进程可以有多个线程，比如在Windows系统中，一个运行的xx.exe就是一个进程。</p>
 <h4 id="线程">线程
@@ -317,12 +335,194 @@
 <li>进程是资源分配的基本单位，线程是CPU调度的基本单位。</li>
 <li>进程有自己独立的地址空间，每启动一个进程，系统就会为它分配地址空间，建立数据表来维护代码段、堆栈段和数据段，线程没有独立的地址空间，它使用相同的地址空间共享数据。</li>
 </ol>
+<h3 id="多线程的优点">多线程的优点
+</h3><ul>
+<li><strong>提高CPU利用率</strong><br>
+多线程可以充分利用多核处理器的能力，使不同的线程在不同的核心上并行运行，从而提高了CPU的利用率。</li>
+<li><strong>响应性</strong><br>
+对于需要保持用户界面响应的应用（如图形用户界面应用程序），多线程可以让一部分线程处理用户输入，而其他线程进行后台计算或其他任务，这样可以确保应用程序对用户的操作及时作出反应。</li>
+<li><strong>简化程序结构</strong><br>
+通过将复杂任务分解成更小、更易于管理的线程，可以简化程序的设计和实现。</li>
+<li><strong>资源共享</strong><br>
+同一进程内的所有线程共享内存空间和其他资源，这使得线程之间的通信和数据交换变得简单高效。</li>
+</ul>
+<h2 id="java多线程">Java多线程
+</h2><h3 id="java实现多线程的原理">java实现多线程的原理
+</h3><p>多线程通过java中的java.long.Thread类来体现</p>
+<p>通过Thread子类的run方法来执行线程的任务，通过调用Thread子类的start方法来启动线程</p>
+<blockquote>
+<p>在 java 中，每次程序运行至少启动 2 个线程。个是 main 线程，一个是垃圾收集线程。</p>
+</blockquote>
+<h3 id="创建java线程">创建java线程
+</h3><h4 id="通过继承thread类创建线程">通过继承Thread类创建线程
+</h4><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">//创建继承Thread类的子类</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ThreadTest</span> <span style="color:#66d9ef">extends</span> Thread{
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Override</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">run</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">//线程任务</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">//使用start方法启动线程</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Main</span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) {
+</span></span><span style="display:flex;"><span>    ThreadTest threadTest <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ThreadTest();
+</span></span><span style="display:flex;"><span>    threadTest.<span style="color:#a6e22e">start</span>();
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
+<li>run方法不会启动线程，不会分配新的分支栈</li>
+<li>start方法可以用于启动一个分支线程，启动成功的线程会自动调用run方法，实现其中的线程任务</li>
+<li>start方法调用后并非立即执行多线程代码，而是使其变为可执行态，具体执行时间由操作系统决定</li>
+<li>多线程程序乱序执行，执行顺序随机</li>
+<li>start方法重复调用会出现java.lang.lllegaIThreadStateException异常</li>
+</ul>
+<h5 id="thread类常用方法">thread类常用方法
+</h5><ul>
+<li>start()：启动线程，调用线程的run方法</li>
+<li>run()：线程执行体，用于定义线程的任务</li>
+<li>currentThread()：静态方法，返回对当前正在执行的线程对象的引用</li>
+<li>getName()：获取当前线程的名字</li>
+<li>setName()：设置当前线程的名字</li>
+<li>yield()：释放当前CPU的执行权</li>
+<li>join()：等待该线程终止</li>
+<li>isAlive()：判断当前线程是否存活</li>
+<li>sleep(long millis)：让当前线程“睡眠”millis毫秒</li>
+<li>setPriority(int newPriority)：设置线程的优先级</li>
+<li>getPriority()：获取线程的优先级</li>
+<li>setDaemon(boolean on)：将该线程标记为守护线程或用户线程</li>
+<li>isDaemon()：判断该线程是否为守护线程</li>
+<li>stop()：强制停止线程（已废弃）</li>
+</ul>
+<h4 id="通过实现runnable接口创建线程">通过实现Runnable接口创建线程
+</h4><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">//创建实现Runnable接口的类</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ThreadTest</span> <span style="color:#66d9ef">implements</span> Runnable{
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@Override</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">run</span>() {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">//线程任务</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">//使用Thread类来启动线程</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Main</span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">main</span>(String<span style="color:#f92672">[]</span> args) {
+</span></span><span style="display:flex;"><span>    ThreadTest threadTest <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ThreadTest();<span style="color:#75715e">//创建实现Runnable接口的类的对象</span>
+</span></span><span style="display:flex;"><span>    Thread thread <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Thread(threadTest);<span style="color:#75715e">//创建Thread类对象，并将实现Runnable接口的类的对象作为参数传入</span>
+</span></span><span style="display:flex;"><span>    thread.<span style="color:#a6e22e">start</span>();<span style="color:#75715e">//启动线程</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h5 id="比起继承thread类实现多线程的好处">比起继承Thread类实现多线程的好处
+</h5><ul>
+<li>避免了Java单继承的局限性</li>
+<li>适合多个相同程序的代码去处理同一个资源的情况，把线程同程序的代码、数据有效分离，较好的体现了面向对象的思想</li>
+<li>线程池只能放进实现Runnable或Callable类线程，不能放进继承Thread类创建的线程</li>
+</ul>
+<h3 id="线程的生命周期">线程的生命周期
+</h3><ul>
+<li><strong>新建 (New)</strong><br>
+新建一个线程对象，调用start()方法之前，线程处于新建状态。。</li>
+<li><strong>就绪 (Runnable)</strong><br>
+当start()方法被调用后，线程进入就绪状态。此时线程位于可运行的线程池中，等待获取cpu使用权</li>
+<li><strong>运行 (Running)</strong><br>
+就绪状态的线程获取cpu资源，开始执行代码</li>
+<li><strong>阻塞 (Blocked)</strong><br>
+线程因某种原因放弃cpu资源，暂时停止运行。等待线程进入就绪状态后才有机会进入运行状态</li>
+<li><strong>死亡 (Dead)</strong><br>
+线程执行完毕或因异常退出run()方法，线程结束生命周期</li>
+</ul>
+<h4 id="阻塞">阻塞
+</h4><p>阻塞的情况分为三种：</p>
+<ol>
+<li>等待阻塞：运行中的线程执行wait()方法，JVM会把该线程放入等待池中。（wait方法会释放持有的锁）</li>
+<li>同步阻塞：运行中的线程执行同步方法，锁被其他线程占用，JVM会把该线程放入锁池中。</li>
+<li>其他阻塞：运行中的线程执行sleep()或join()方法，或者发出了I/O请求时，JVM会把该线程置为阻塞状态。当sleep()状态超时、join()等待线程终止或者超时、或者I/O处理完毕时，线程重新转入就绪状态。(sleep不会释放持有的锁)</li>
+</ol>
+<h3 id="线程调度">线程调度
+</h3><h4 id="线程优先级">线程优先级
+</h4><ul>
+<li>Java中的线程优先级范围从<code>MAX_PRIORITY = 1</code>到<code>MIN_PRIORITY = 10</code>，默认为<code>NORM_PRIORITY = 5</code>。</li>
+<li>线程优先级高的线程分配CPU时间片的概率会更高，但不代表一定优先执行。</li>
+<li>使用<code>setPriority()</code>和<code>getPriority()</code>方法可以设置和获取线程的优先级。</li>
+</ul>
+<h4 id="线程睡眠等待与唤醒">线程睡眠、等待与唤醒
+</h4><ul>
+<li><code>Thread.sleep(long millis)</code>让线程进入休眠（阻塞状态）放弃占有cpu时间片，让给其他线程使用(不释放锁)</li>
+<li>sleep方法可以做到间隔特定的时间去执行代码，每隔多久执行一次</li>
+</ul>
+<ul>
+<li><code>wait()</code>方法让线程无限期等待(释放当前线程的锁)</li>
+<li><code>notify()</code>方法唤醒一个正在等待的线程(不释放当前线程的锁)</li>
+<li><code>notifyAll()</code>唤醒此对象监视器上所有等待的线程</li>
+</ul>
+<h4 id="线程礼让">线程礼让
+</h4><ul>
+<li><code>Thread.yield()</code>让当前线程让出cpu时间片，与其他线程一起重新竞争cpu时间片</li>
+<li>yield方法不会阻塞线程，只是让线程从运行状态转为就绪状态，让cpu重新调度线程</li>
+</ul>
+<blockquote>
+<p>sleep阻塞的时间是固定的，而yield方法让出的时间无法设定</p>
+</blockquote>
+<h4 id="线程加入">线程加入
+</h4><ul>
+<li><code>join()</code>让一个线程等待另一个线程执行完毕后再继续执行</li>
+<li><code>join()</code>方法要再start()方法调用后才能生效</li>
+</ul>
+<h4 id="线程同步">线程同步
+</h4><p>多个线程对同一个内存地址进行写入时，由于cpu时间调度上的问题，写入数据会被多次覆盖，可能会导致数据不一致或未定义行为。
+因此需要通过同步机制确保同一时间只有一个线程能进行修改操作，以维护数据的一致性和完整性。</p>
+<blockquote>
+<p>线程同步的同是指协同运作而非同时运作</p>
+</blockquote>
+<h5 id="互斥锁">互斥锁
+</h5><ul>
+<li>如果对一个变量加上互斥锁，那么在同一时刻，该变量只能有一个线程能访问，即当一个线程访问临界资源时，其他线程只能等待。</li>
+<li>在 Java 中，每一个对象都有一个锁标记（ monitor ），也被称为监视器，当多个线程访问对象时，只有获取了对象的锁才能访问。</li>
+</ul>
+<h5 id="使用synchronized实现同步互斥访问">使用synchronized实现同步互斥访问
+</h5><ul>
+<li>synchornized代码块方式</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">myThread1</span>(Thread thread) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">synchronized</span> (<span style="color:#66d9ef">this</span>) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0; i <span style="color:#f92672">&lt;</span> 5; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>                System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(thread.<span style="color:#a6e22e">getName</span>() <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;:&#34;</span> <span style="color:#f92672">+</span> i);
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></div><p>此方法中synchronized修饰一个代码块，锁定当前对象实例</p>
+<ul>
+<li>在实例方法中使用synchornized</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">synchronized</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">myThread2</span>(Thread thread) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0; i <span style="color:#f92672">&lt;</span> 5; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(thread.<span style="color:#a6e22e">getName</span>() <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;:&#34;</span> <span style="color:#f92672">+</span> i);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>在此方法中synchronized修饰整个方法，锁定当前对象实例</p>
+<ul>
+<li>在静态方法中使用synchornized</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">synchronized</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">myThread3</span>(Thread thread) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0; i <span style="color:#f92672">&lt;</span> 5; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>        System.<span style="color:#a6e22e">out</span>.<span style="color:#a6e22e">println</span>(thread.<span style="color:#a6e22e">getName</span>() <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;:&#34;</span> <span style="color:#f92672">+</span> i);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>在此方法中synchronized修饰整个方法，锁定类本身，</p>
+<p>如果一个方法或者代码块被 <code>synchronized</code> 关键字修饰，当线程获取到该方法或代码块的锁，其他线程是不能继续访问该方法或代码块的。而其他线程想访问该方法或代码块，就必须要等待获取到锁的线程释放这个锁。在这里，释放锁只有两种情况：</p>
+<ul>
+<li><strong>线程执行完代码块</strong>：线程完成同步代码块或方法中的所有指令后，会自动释放锁。</li>
+<li><strong>程序报错</strong>：如果在执行过程中遇到未处理的异常，JVM 会让线程自动释放它所持有的锁。</li>
+</ul>
 
 </section>
 
 
     <footer class="article-footer">
     
+    <section class="article-tags">
+        
+            <a href="/tags/java/">Java</a>
+        
+    </section>
+
 
     </footer>
 

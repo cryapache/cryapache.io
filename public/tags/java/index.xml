@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
-        <title>Posts on 墨因梦启</title>
-        <link>http://localhost:1313/post/</link>
-        <description>Recent content in Posts on 墨因梦启</description>
+        <title>Java on 墨因梦启</title>
+        <link>http://localhost:1313/tags/java/</link>
+        <description>Recent content in Java on 墨因梦启</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Mon, 09 Dec 2024 22:41:54 +0800</lastBuildDate><atom:link href="http://localhost:1313/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Mon, 09 Dec 2024 22:41:54 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/java/index.xml" rel="self" type="application/rss+xml" /><item>
         <title>Java 多线程</title>
         <link>http://localhost:1313/post/java-%E5%A4%9A%E7%BA%BF%E7%A8%8B/</link>
         <pubDate>Mon, 09 Dec 2024 22:41:54 +0800</pubDate>
         
         <guid>http://localhost:1313/post/java-%E5%A4%9A%E7%BA%BF%E7%A8%8B/</guid>
-        <description>&lt;h2 id=&#34;进程与线程&#34;&gt;进程与线程
+        <description>&lt;hr&gt;
+&lt;h2 id=&#34;进程与线程&#34;&gt;进程与线程
 &lt;/h2&gt;&lt;h4 id=&#34;进程&#34;&gt;进程
 &lt;/h4&gt;&lt;p&gt;一个在内存中运行的应用程序。每个进程都有自己独立的一块内存空间，一个进程可以有多个线程，比如在Windows系统中，一个运行的xx.exe就是一个进程。&lt;/p&gt;
 &lt;h4 id=&#34;线程&#34;&gt;线程
@@ -198,217 +199,6 @@
 &lt;li&gt;&lt;strong&gt;线程执行完代码块&lt;/strong&gt;：线程完成同步代码块或方法中的所有指令后，会自动释放锁。&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;程序报错&lt;/strong&gt;：如果在执行过程中遇到未处理的异常，JVM 会让线程自动释放它所持有的锁。&lt;/li&gt;
 &lt;/ul&gt;
-</description>
-        </item>
-        <item>
-        <title>Lingo使用的一些笔记</title>
-        <link>http://localhost:1313/post/lingo%E4%BD%BF%E7%94%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E7%AC%94%E8%AE%B0/</link>
-        <pubDate>Thu, 05 Dec 2024 17:04:52 +0800</pubDate>
-        
-        <guid>http://localhost:1313/post/lingo%E4%BD%BF%E7%94%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E7%AC%94%E8%AE%B0/</guid>
-        <description>&lt;h2 id=&#34;lingo主要作用&#34;&gt;Lingo主要作用
-&lt;/h2&gt;&lt;p&gt;快速求解线性规划、非线性规划、线性和非线性方程组等&lt;/p&gt;
-&lt;h2 id=&#34;简单线性问题求解&#34;&gt;简单线性问题求解
-&lt;/h2&gt;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/post/lingo%E4%BD%BF%E7%94%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E7%AC%94%E8%AE%B0/img1.png&#34;
-	width=&#34;456&#34;
-	height=&#34;263&#34;
-	srcset=&#34;http://localhost:1313/post/lingo%E4%BD%BF%E7%94%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E7%AC%94%E8%AE%B0/img1_hu2449924226468297428.png 480w, http://localhost:1313/post/lingo%E4%BD%BF%E7%94%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E7%AC%94%E8%AE%B0/img1_hu8448896250631527395.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;alt text&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;173&#34;
-		data-flex-basis=&#34;416px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;这样的题目直接复述即可&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/post/lingo%E4%BD%BF%E7%94%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E7%AC%94%E8%AE%B0/img2.png&#34;
-	width=&#34;448&#34;
-	height=&#34;156&#34;
-	srcset=&#34;http://localhost:1313/post/lingo%E4%BD%BF%E7%94%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E7%AC%94%E8%AE%B0/img2_hu15117185323353959619.png 480w, http://localhost:1313/post/lingo%E4%BD%BF%E7%94%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E7%AC%94%E8%AE%B0/img2_hu15247678306568672354.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;alt text&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;287&#34;
-		data-flex-basis=&#34;689px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;p&gt;结果如下&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/post/lingo%E4%BD%BF%E7%94%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E7%AC%94%E8%AE%B0/img3.png&#34;
-	width=&#34;555&#34;
-	height=&#34;581&#34;
-	srcset=&#34;http://localhost:1313/post/lingo%E4%BD%BF%E7%94%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E7%AC%94%E8%AE%B0/img3_hu675485515010810757.png 480w, http://localhost:1313/post/lingo%E4%BD%BF%E7%94%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E7%AC%94%E8%AE%B0/img3_hu14340351527192498826.png 1024w&#34;
-	loading=&#34;lazy&#34;
-	
-		alt=&#34;alt text&#34;
-	
-	
-		class=&#34;gallery-image&#34; 
-		data-flex-grow=&#34;95&#34;
-		data-flex-basis=&#34;229px&#34;
-	
-&gt;&lt;/p&gt;
-&lt;h2 id=&#34;语法&#34;&gt;语法
-&lt;/h2&gt;&lt;h3 id=&#34;基本用法一些小点&#34;&gt;基本用法&amp;amp;一些小点
-&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;lingo中数学规划模型包含目标函数、决策变量、约束条件三个要素&lt;/li&gt;
-&lt;li&gt;lingo中每一句都要用英文分号结束&lt;/li&gt;
-&lt;li&gt;以英文!开始注释，需要以英文分号结束&lt;/li&gt;
-&lt;li&gt;变量不区分字母大小写，要求以字母开头，后面可以有数字与下划线，不超过32个字符&lt;/li&gt;
-&lt;li&gt;定义好集合后的语句顺序是随意的&lt;/li&gt;
-&lt;li&gt;函数以@开头&lt;/li&gt;
-&lt;li&gt;LINGO中各变量默认是非负的&lt;/li&gt;
-&lt;li&gt;偶尔莫名其妙出现的model报错，重启lingo后又没有了&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;集合&#34;&gt;集合
-&lt;/h3&gt;&lt;p&gt;集合部分的语法为&lt;br&gt;
-sets:&lt;br&gt;
-集合名称1/成员列表1/：属性1_1，属性1_2，…，属性1_n1；&lt;br&gt;
-集合名称2/成员列表2/：属性2_1，属性2_2，…，属性2_n2；&lt;br&gt;
-派生集合名称（集合名称1，集合名称2）：属性3_1，…，属性3_n3；&lt;br&gt;
-endsets&lt;/p&gt;
-&lt;p&gt;eg:&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-lingo&#34; data-lang=&#34;lingo&#34;&gt;SETS:
-    PRODUCTS /Prod1, Prod2, Prod3/: Profit;
-    MACHINES /Mach1, Mach2, Mach3/: TimeAvailable;
-    LINKS(PRODUCTS, MACHINES): TimeRequired;
-ENDSETS
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;数据&#34;&gt;数据
-&lt;/h3&gt;&lt;p&gt;数据部分的语法为&lt;br&gt;
-data:&lt;br&gt;
-属性1 = 数据列表;&lt;br&gt;
-属性2 = 数据列表;&lt;br&gt;
-enddata&lt;/p&gt;
-&lt;p&gt;eg:&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-lingo&#34; data-lang=&#34;lingo&#34;&gt;DATA:
-Profit = 300, 500, 200;
-TimeAvailable = 40, 60, 50;
-TimeRequired = 
-    1.5, 2.0, 1.0,
-    1.0, 1.5, 2.0,
-    2.0, 1.0, 1.5;
-ENDDATA
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;函数&#34;&gt;函数
-&lt;/h3&gt;&lt;h4 id=&#34;算术运算符&#34;&gt;算术运算符
-&lt;/h4&gt;&lt;p&gt;加减乘除乘方分别为&lt;code&gt;+&lt;/code&gt; &lt;code&gt;-&lt;/code&gt; &lt;code&gt;*&lt;/code&gt; &lt;code&gt;/&lt;/code&gt; &lt;code&gt;^&lt;/code&gt;&lt;/p&gt;
-&lt;h4 id=&#34;逻辑运算符&#34;&gt;逻辑运算符
-&lt;/h4&gt;&lt;p&gt;#not# 否定该操作数的逻辑值，＃not＃是一个一元运算符。&lt;br&gt;
-#eq# 若两个运算数相等，则为 true；否则为 false。&lt;br&gt;
-#ne# 若两个运算符不相等，则为 true；否则为 false。&lt;br&gt;
-#gt# 若左边的运算符严格大于右边的运算符，则为 true；否则为 false。&lt;br&gt;
-#ge# 若左边的运算符大于或等于右边的运算符，则为 true；否则为 false。&lt;br&gt;
-#lt# 若左边的运算符严格小于右边的运算符，则为 true；否则为 false。&lt;br&gt;
-#le# 若左边的运算符小于或等于右边的运算符，则为 true；否则为 false。&lt;br&gt;
-#and# 仅当两个参数都为 true 时，结果为 true；否则为 false。&lt;br&gt;
-#or# 仅当两个参数都为 false 时，结果为 false；否则为 true。&lt;/p&gt;
-&lt;h4 id=&#34;常见数学函数&#34;&gt;常见数学函数
-&lt;/h4&gt;&lt;p&gt;@abs(x)返回 x 的绝对值。&lt;br&gt;
-@sin(x)返回 x 的正弦值，x 采用弧度制。&lt;br&gt;
-@cos(x)返回 x 的余弦值。&lt;br&gt;
-@tan(x)返回 x 的正切值。&lt;br&gt;
-@exp(x)返回常数 e 的 x 次方。&lt;br&gt;
-@log(x)返回 x 的自然对数。&lt;br&gt;
-@lgm(x)返回 x 的 gamma 函数的自然对数。&lt;br&gt;
-@mod(x,y)返回 x 除以 y 的余数。&lt;br&gt;
-@sign(x)如果 x0 时返回 1，当 x=0 时返回 0。&lt;br&gt;
-@floor(x)返回 x 的整数部分。当 x&amp;gt;=0 时，返回不超过 x 的最大整数；当 x&amp;lt;0 时，返回 不低于 x 的最大整数。&lt;br&gt;
-@smax(x1,x2,…,xn)返回 x1，x2，…，xn 中的最大值。&lt;br&gt;
-@smin(x1,x2,…,xn)返回 x1，x2，…，xn 中的最小值。&lt;/p&gt;
-&lt;h4 id=&#34;变量界定函数&#34;&gt;变量界定函数
-&lt;/h4&gt;&lt;p&gt;变量界定函数实现对变量取值范围的附加限制，共 4 种&lt;/p&gt;
-&lt;p&gt;@bin(x)限制 x 为 0 或 1；&lt;br&gt;
-@bnd(L,x,U)限制 L≤x≤U；&lt;br&gt;
-@free(x)取消对变量 x 的默认下界为 0 的限制，即 x 可以取任意实数；&lt;br&gt;
-@gin(x)限制 x 为整数。&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;在默认情况下，LINGO 规定变量是非负的，也就是说下界为 0，上界为+∞。@free 取 消了默认的下界为 0 的限制，使变量也可以取负值。@bnd 用于设定一个变量的上下界,也可以取消默认下界为 0 的约束。
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h4 id=&#34;级循环函数&#34;&gt;级循环函数
-&lt;/h4&gt;&lt;p&gt;@for：该函数用来产生对集成员的约束。&lt;/p&gt;
-&lt;p&gt;@sum：该函数返回遍历指定的集成员的一个表达式的和。&lt;/p&gt;
-&lt;p&gt;@min 和@max：返回指定的集成员的一个表达式的最小值或最大值。&lt;/p&gt;
-</description>
-        </item>
-        <item>
-        <title>使用hugo搭建博客</title>
-        <link>http://localhost:1313/post/%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</link>
-        <pubDate>Tue, 06 Aug 2024 19:39:48 +0800</pubDate>
-        
-        <guid>http://localhost:1313/post/%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/</guid>
-        <description>&lt;img src="http://localhost:1313/post/%E4%BD%BF%E7%94%A8hugo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/cover.png" alt="Featured image of post 使用hugo搭建博客" /&gt;&lt;h2 id=&#34;前言&#34;&gt;前言
-&lt;/h2&gt;&lt;p&gt;搭个博客各种问题改来改去好麻烦，简单记录一下做到目前这个程度的路径吧。&lt;/p&gt;
-&lt;h2 id=&#34;使用hugo本地建站&#34;&gt;使用Hugo本地建站
-&lt;/h2&gt;&lt;h3 id=&#34;什么是hugo&#34;&gt;什么是Hugo
-&lt;/h3&gt;&lt;p&gt;&lt;a class=&#34;link&#34; href=&#34;https://www.gohugo.org/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Hugo&lt;/a&gt;是由 Go 语言实现的静态网站生成器。简单、易用、高效、易扩展、快速部署。&lt;br&gt;
-下面内容参考hugo官网的&lt;a class=&#34;link&#34; href=&#34;https://gohugo.io/getting-started/quick-start/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;quick start&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&#34;hugo本地安装&#34;&gt;Hugo本地安装
-&lt;/h3&gt;&lt;p&gt;可以参考&lt;a class=&#34;link&#34; href=&#34;https://gohugo.io/installation/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;官方文档&lt;/a&gt;,我是win11系统，这里使用&lt;a class=&#34;link&#34; href=&#34;https://gohugo.io/installation/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Chocolatey&lt;/a&gt;安装了hugo的拓展版本:&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;choco install hugo-extended
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Chocolatey 是一个流行的软件包管理器，主要用于 Windows 操作系统。它受到 Linux 和 Mac 系统中已有的包管理工具（如 apt、yum 和 Homebrew）的启发，旨在简化在 Windows 平台上安装和更新软件的过程。这个可以自行学习使用。&lt;/p&gt;
-&lt;p&gt;安装完成后，输入以下命令检查hugo版本：&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;hugo version
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;使用hugo创建博客&#34;&gt;使用hugo创建博客
-&lt;/h3&gt;&lt;p&gt;输入下列指令以创建博客项目：&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;hugo new site [项目名称] 
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;该命令会在目录下创建博客项目文件夹，输入指令将其该为当前根目录&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;cd [项目名称]
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;这里我是用的主题是stack，将其克隆到themes文件夹&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;git submodule add https://github.com/CaiJimmy/hugo-theme-stack/ themes/hugo-theme-stack
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;在网站配置文件夹&lt;code&gt;hugo.toml&lt;/code&gt;文件后追加一行，指向当前主题&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;theme = &amp;#39;主题文件夹名称&amp;#39; 
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;启动Hugo的开发服务器查看站点&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;hugo server
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;如果运行成功，提示的倒数第二行会显示本地服务器地址，打开即可看到你部署的网页。&lt;/p&gt;
-&lt;p&gt;按&lt;code&gt;Ctrl + C&lt;/code&gt;停止运行&lt;/p&gt;
-&lt;h2 id=&#34;stack主题美化&#34;&gt;Stack主题美化
-&lt;/h2&gt;&lt;p&gt;Stack是hugo中的一个主题，详细配置可以参考&lt;a class=&#34;link&#34; href=&#34;https://stack-docs.netlify.app/zh/configuration/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Stack中文文档&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&#34;编写博客&#34;&gt;编写博客
-&lt;/h2&gt;&lt;h3 id=&#34;使用hugo创建文章&#34;&gt;使用hugo创建文章
-&lt;/h3&gt;&lt;p&gt;在博客根目录下运行创建新博客文章:&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;hugo new post/untitled.md
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;比起直接新建&lt;code&gt;.md&lt;/code&gt;文件，使用hugo创建可以自动填充&lt;a class=&#34;link&#34; href=&#34;https://www.gohugo.org/doc/content/front-matter/&#34;  target=&#34;_blank&#34; rel=&#34;noopener&#34;
-    &gt;Front Matter&lt;/a&gt;模板，模板可以在&lt;code&gt;\archetypes\default.md&lt;/code&gt;中找到并修改&lt;/p&gt;
-&lt;h3 id=&#34;添加图片&#34;&gt;添加图片
-&lt;/h3&gt;&lt;p&gt;众所周知&lt;code&gt;.md&lt;/code&gt;文件是不存储图片的，想在文章中存储图片有三种方式:&lt;/p&gt;
-&lt;p&gt;一种是将图片添加到静态资源中然后引用，这样编译后图片会存储在网站根目录以供调用，缺点是编写时没法查看图片，全凭感觉。&lt;/p&gt;
-&lt;p&gt;还可以在创建博客时多建一层，使文件夹结构如下&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;post&lt;/li&gt;
-&lt;li&gt;
-&lt;ul&gt;
-&lt;li&gt;newBlog&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;ul&gt;
-&lt;li&gt;index.md&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;ul&gt;
-&lt;li&gt;img.png&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;这样则可以通过相对路径调用图片&lt;/p&gt;
-&lt;p&gt;还有就是通过图床来调用，这个可以稍后再学&lt;/p&gt;
 </description>
         </item>
         

@@ -12,7 +12,8 @@
         <pubDate>Mon, 09 Dec 2024 22:41:54 +0800</pubDate>
         
         <guid>http://localhost:1313/post/java-%E5%A4%9A%E7%BA%BF%E7%A8%8B/</guid>
-        <description>&lt;h2 id=&#34;进程与线程&#34;&gt;进程与线程
+        <description>&lt;hr&gt;
+&lt;h2 id=&#34;进程与线程&#34;&gt;进程与线程
 &lt;/h2&gt;&lt;h4 id=&#34;进程&#34;&gt;进程
 &lt;/h4&gt;&lt;p&gt;一个在内存中运行的应用程序。每个进程都有自己独立的一块内存空间，一个进程可以有多个线程，比如在Windows系统中，一个运行的xx.exe就是一个进程。&lt;/p&gt;
 &lt;h4 id=&#34;线程&#34;&gt;线程
@@ -22,6 +23,182 @@
 &lt;li&gt;进程是资源分配的基本单位，线程是CPU调度的基本单位。&lt;/li&gt;
 &lt;li&gt;进程有自己独立的地址空间，每启动一个进程，系统就会为它分配地址空间，建立数据表来维护代码段、堆栈段和数据段，线程没有独立的地址空间，它使用相同的地址空间共享数据。&lt;/li&gt;
 &lt;/ol&gt;
+&lt;h3 id=&#34;多线程的优点&#34;&gt;多线程的优点
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;提高CPU利用率&lt;/strong&gt;&lt;br&gt;
+多线程可以充分利用多核处理器的能力，使不同的线程在不同的核心上并行运行，从而提高了CPU的利用率。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;响应性&lt;/strong&gt;&lt;br&gt;
+对于需要保持用户界面响应的应用（如图形用户界面应用程序），多线程可以让一部分线程处理用户输入，而其他线程进行后台计算或其他任务，这样可以确保应用程序对用户的操作及时作出反应。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;简化程序结构&lt;/strong&gt;&lt;br&gt;
+通过将复杂任务分解成更小、更易于管理的线程，可以简化程序的设计和实现。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;资源共享&lt;/strong&gt;&lt;br&gt;
+同一进程内的所有线程共享内存空间和其他资源，这使得线程之间的通信和数据交换变得简单高效。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;java多线程&#34;&gt;Java多线程
+&lt;/h2&gt;&lt;h3 id=&#34;java实现多线程的原理&#34;&gt;java实现多线程的原理
+&lt;/h3&gt;&lt;p&gt;多线程通过java中的java.long.Thread类来体现&lt;/p&gt;
+&lt;p&gt;通过Thread子类的run方法来执行线程的任务，通过调用Thread子类的start方法来启动线程&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;在 java 中，每次程序运行至少启动 2 个线程。个是 main 线程，一个是垃圾收集线程。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;创建java线程&#34;&gt;创建java线程
+&lt;/h3&gt;&lt;h4 id=&#34;通过继承thread类创建线程&#34;&gt;通过继承Thread类创建线程
+&lt;/h4&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;//创建继承Thread类的子类&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;ThreadTest&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;extends&lt;/span&gt; Thread{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;@Override&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;run&lt;/span&gt;() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#75715e&#34;&gt;//线程任务&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;//使用start方法启动线程&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Main&lt;/span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;static&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;(String&lt;span style=&#34;color:#f92672&#34;&gt;[]&lt;/span&gt; args) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    ThreadTest threadTest &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;new&lt;/span&gt; ThreadTest();
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    threadTest.&lt;span style=&#34;color:#a6e22e&#34;&gt;start&lt;/span&gt;();
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;run方法不会启动线程，不会分配新的分支栈&lt;/li&gt;
+&lt;li&gt;start方法可以用于启动一个分支线程，启动成功的线程会自动调用run方法，实现其中的线程任务&lt;/li&gt;
+&lt;li&gt;start方法调用后并非立即执行多线程代码，而是使其变为可执行态，具体执行时间由操作系统决定&lt;/li&gt;
+&lt;li&gt;多线程程序乱序执行，执行顺序随机&lt;/li&gt;
+&lt;li&gt;start方法重复调用会出现java.lang.lllegaIThreadStateException异常&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5 id=&#34;thread类常用方法&#34;&gt;thread类常用方法
+&lt;/h5&gt;&lt;ul&gt;
+&lt;li&gt;start()：启动线程，调用线程的run方法&lt;/li&gt;
+&lt;li&gt;run()：线程执行体，用于定义线程的任务&lt;/li&gt;
+&lt;li&gt;currentThread()：静态方法，返回对当前正在执行的线程对象的引用&lt;/li&gt;
+&lt;li&gt;getName()：获取当前线程的名字&lt;/li&gt;
+&lt;li&gt;setName()：设置当前线程的名字&lt;/li&gt;
+&lt;li&gt;yield()：释放当前CPU的执行权&lt;/li&gt;
+&lt;li&gt;join()：等待该线程终止&lt;/li&gt;
+&lt;li&gt;isAlive()：判断当前线程是否存活&lt;/li&gt;
+&lt;li&gt;sleep(long millis)：让当前线程“睡眠”millis毫秒&lt;/li&gt;
+&lt;li&gt;setPriority(int newPriority)：设置线程的优先级&lt;/li&gt;
+&lt;li&gt;getPriority()：获取线程的优先级&lt;/li&gt;
+&lt;li&gt;setDaemon(boolean on)：将该线程标记为守护线程或用户线程&lt;/li&gt;
+&lt;li&gt;isDaemon()：判断该线程是否为守护线程&lt;/li&gt;
+&lt;li&gt;stop()：强制停止线程（已废弃）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;通过实现runnable接口创建线程&#34;&gt;通过实现Runnable接口创建线程
+&lt;/h4&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;//创建实现Runnable接口的类&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;ThreadTest&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;implements&lt;/span&gt; Runnable{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#a6e22e&#34;&gt;@Override&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;run&lt;/span&gt;() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#75715e&#34;&gt;//线程任务&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;//使用Thread类来启动线程&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Main&lt;/span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;static&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;(String&lt;span style=&#34;color:#f92672&#34;&gt;[]&lt;/span&gt; args) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    ThreadTest threadTest &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;new&lt;/span&gt; ThreadTest();&lt;span style=&#34;color:#75715e&#34;&gt;//创建实现Runnable接口的类的对象&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    Thread thread &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;new&lt;/span&gt; Thread(threadTest);&lt;span style=&#34;color:#75715e&#34;&gt;//创建Thread类对象，并将实现Runnable接口的类的对象作为参数传入&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    thread.&lt;span style=&#34;color:#a6e22e&#34;&gt;start&lt;/span&gt;();&lt;span style=&#34;color:#75715e&#34;&gt;//启动线程&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h5 id=&#34;比起继承thread类实现多线程的好处&#34;&gt;比起继承Thread类实现多线程的好处
+&lt;/h5&gt;&lt;ul&gt;
+&lt;li&gt;避免了Java单继承的局限性&lt;/li&gt;
+&lt;li&gt;适合多个相同程序的代码去处理同一个资源的情况，把线程同程序的代码、数据有效分离，较好的体现了面向对象的思想&lt;/li&gt;
+&lt;li&gt;线程池只能放进实现Runnable或Callable类线程，不能放进继承Thread类创建的线程&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;线程的生命周期&#34;&gt;线程的生命周期
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;新建 (New)&lt;/strong&gt;&lt;br&gt;
+新建一个线程对象，调用start()方法之前，线程处于新建状态。。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;就绪 (Runnable)&lt;/strong&gt;&lt;br&gt;
+当start()方法被调用后，线程进入就绪状态。此时线程位于可运行的线程池中，等待获取cpu使用权&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;运行 (Running)&lt;/strong&gt;&lt;br&gt;
+就绪状态的线程获取cpu资源，开始执行代码&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;阻塞 (Blocked)&lt;/strong&gt;&lt;br&gt;
+线程因某种原因放弃cpu资源，暂时停止运行。等待线程进入就绪状态后才有机会进入运行状态&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;死亡 (Dead)&lt;/strong&gt;&lt;br&gt;
+线程执行完毕或因异常退出run()方法，线程结束生命周期&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;阻塞&#34;&gt;阻塞
+&lt;/h4&gt;&lt;p&gt;阻塞的情况分为三种：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;等待阻塞：运行中的线程执行wait()方法，JVM会把该线程放入等待池中。（wait方法会释放持有的锁）&lt;/li&gt;
+&lt;li&gt;同步阻塞：运行中的线程执行同步方法，锁被其他线程占用，JVM会把该线程放入锁池中。&lt;/li&gt;
+&lt;li&gt;其他阻塞：运行中的线程执行sleep()或join()方法，或者发出了I/O请求时，JVM会把该线程置为阻塞状态。当sleep()状态超时、join()等待线程终止或者超时、或者I/O处理完毕时，线程重新转入就绪状态。(sleep不会释放持有的锁)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;线程调度&#34;&gt;线程调度
+&lt;/h3&gt;&lt;h4 id=&#34;线程优先级&#34;&gt;线程优先级
+&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;Java中的线程优先级范围从&lt;code&gt;MAX_PRIORITY = 1&lt;/code&gt;到&lt;code&gt;MIN_PRIORITY = 10&lt;/code&gt;，默认为&lt;code&gt;NORM_PRIORITY = 5&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;线程优先级高的线程分配CPU时间片的概率会更高，但不代表一定优先执行。&lt;/li&gt;
+&lt;li&gt;使用&lt;code&gt;setPriority()&lt;/code&gt;和&lt;code&gt;getPriority()&lt;/code&gt;方法可以设置和获取线程的优先级。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;线程睡眠等待与唤醒&#34;&gt;线程睡眠、等待与唤醒
+&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Thread.sleep(long millis)&lt;/code&gt;让线程进入休眠（阻塞状态）放弃占有cpu时间片，让给其他线程使用(不释放锁)&lt;/li&gt;
+&lt;li&gt;sleep方法可以做到间隔特定的时间去执行代码，每隔多久执行一次&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;wait()&lt;/code&gt;方法让线程无限期等待(释放当前线程的锁)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;notify()&lt;/code&gt;方法唤醒一个正在等待的线程(不释放当前线程的锁)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;notifyAll()&lt;/code&gt;唤醒此对象监视器上所有等待的线程&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;线程礼让&#34;&gt;线程礼让
+&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Thread.yield()&lt;/code&gt;让当前线程让出cpu时间片，与其他线程一起重新竞争cpu时间片&lt;/li&gt;
+&lt;li&gt;yield方法不会阻塞线程，只是让线程从运行状态转为就绪状态，让cpu重新调度线程&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;sleep阻塞的时间是固定的，而yield方法让出的时间无法设定&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&#34;线程加入&#34;&gt;线程加入
+&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;join()&lt;/code&gt;让一个线程等待另一个线程执行完毕后再继续执行&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;join()&lt;/code&gt;方法要再start()方法调用后才能生效&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;线程同步&#34;&gt;线程同步
+&lt;/h4&gt;&lt;p&gt;多个线程对同一个内存地址进行写入时，由于cpu时间调度上的问题，写入数据会被多次覆盖，可能会导致数据不一致或未定义行为。
+因此需要通过同步机制确保同一时间只有一个线程能进行修改操作，以维护数据的一致性和完整性。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;线程同步的同是指协同运作而非同时运作&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h5 id=&#34;互斥锁&#34;&gt;互斥锁
+&lt;/h5&gt;&lt;ul&gt;
+&lt;li&gt;如果对一个变量加上互斥锁，那么在同一时刻，该变量只能有一个线程能访问，即当一个线程访问临界资源时，其他线程只能等待。&lt;/li&gt;
+&lt;li&gt;在 Java 中，每一个对象都有一个锁标记（ monitor ），也被称为监视器，当多个线程访问对象时，只有获取了对象的锁才能访问。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5 id=&#34;使用synchronized实现同步互斥访问&#34;&gt;使用synchronized实现同步互斥访问
+&lt;/h5&gt;&lt;ul&gt;
+&lt;li&gt;synchornized代码块方式&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;myThread1&lt;/span&gt;(Thread thread) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;synchronized&lt;/span&gt; (&lt;span style=&#34;color:#66d9ef&#34;&gt;this&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; (&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; i &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; 0; i &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt; 5; i&lt;span style=&#34;color:#f92672&#34;&gt;++&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                System.&lt;span style=&#34;color:#a6e22e&#34;&gt;out&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;println&lt;/span&gt;(thread.&lt;span style=&#34;color:#a6e22e&#34;&gt;getName&lt;/span&gt;() &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;:&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; i);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;此方法中synchronized修饰一个代码块，锁定当前对象实例&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;在实例方法中使用synchornized&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;synchronized&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;myThread2&lt;/span&gt;(Thread thread) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; (&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; i &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; 0; i &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt; 5; i&lt;span style=&#34;color:#f92672&#34;&gt;++&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        System.&lt;span style=&#34;color:#a6e22e&#34;&gt;out&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;println&lt;/span&gt;(thread.&lt;span style=&#34;color:#a6e22e&#34;&gt;getName&lt;/span&gt;() &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;:&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; i);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在此方法中synchronized修饰整个方法，锁定当前对象实例&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;在静态方法中使用synchornized&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;static&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;synchronized&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;myThread3&lt;/span&gt;(Thread thread) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; (&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; i &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; 0; i &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt; 5; i&lt;span style=&#34;color:#f92672&#34;&gt;++&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        System.&lt;span style=&#34;color:#a6e22e&#34;&gt;out&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;println&lt;/span&gt;(thread.&lt;span style=&#34;color:#a6e22e&#34;&gt;getName&lt;/span&gt;() &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;:&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; i);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;在此方法中synchronized修饰整个方法，锁定类本身，&lt;/p&gt;
+&lt;p&gt;如果一个方法或者代码块被 &lt;code&gt;synchronized&lt;/code&gt; 关键字修饰，当线程获取到该方法或代码块的锁，其他线程是不能继续访问该方法或代码块的。而其他线程想访问该方法或代码块，就必须要等待获取到锁的线程释放这个锁。在这里，释放锁只有两种情况：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;线程执行完代码块&lt;/strong&gt;：线程完成同步代码块或方法中的所有指令后，会自动释放锁。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;程序报错&lt;/strong&gt;：如果在执行过程中遇到未处理的异常，JVM 会让线程自动释放它所持有的锁。&lt;/li&gt;
+&lt;/ul&gt;
 </description>
         </item>
         <item>

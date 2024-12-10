@@ -3,6 +3,9 @@ title: Java 多线程
 date: 2024-12-09T22:41:54+08:00
 draft: false
 comments: true
+categories: "学习笔记"
+tags: ["Java"]
+---
 ---
 
 ## 进程与线程
