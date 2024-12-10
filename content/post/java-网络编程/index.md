@@ -1,5 +1,5 @@
 ---
-title: java 网络编程
+title: Java 网络编程
 date: 2024-12-10T10:39:07+08:00
 draft: false
 comments: true
@@ -100,3 +100,58 @@ HTTP协议（超文本传输协议）是用于从www服务器传输超文本到�
 Socket（套接字）是网络编程中的一个抽象层，用于不同计算机进程之间的通信。它提供了应用程序与传输协议之间的接口。通过socket，程序可以发送和接收数据，建立连接，并执行其他网络相关的操作。
 
 ### Socket与ServerSocket的通讯过程
+
+- 服务器端创建一个serversocket实例，绑定到特定端口监听来自客户端的连接请求
+```java
+ServerSocket serverSocket = new ServerSocket(port);
+```
+
+- 服务器调用accept方法，阻塞直到接收到一个来自客户端的连接请求
+```java
+Socket clientSocket = serverSocket.accept();
+```
+
+- 客户端创建一个socket实例，连接到服务器的ip地址和端口
+```java
+Socket socket = new Socket(serverAddress, port);
+```
+
+- 服务器和客户端通过clientsocket和socket的输入输出流进行数据传输
+```java
+// 服务器端读取客户端数据
+InputStream input = clientSocket.getInputStream();
+// 服务器端发送数据给客户端
+OutputStream output = clientSocket.getOutputStream();
+
+// 客户端读取服务器端数据
+InputStream inputFromServer = socket.getInputStream();
+// 客户端发送数据给服务器端
+OutputStream outputToServer = socket.getOutputStream();
+```
+
+- 通信完成后，关闭socket连接
+```java
+clientSocket.close();
+socket.close();
+serverSocket.close();
+```
+
+### Socket与ServerSocket的常用方法
+
+#### ServerSocket类
+
+- `ServerSocket(int port)`
+  - 创建一个绑定到指定端口的服务器套接字。
+- `Socket accept()`
+  - 监听并接受一个连接请求，返回一个Socket对象。
+- `void close()`
+  - 关闭此ServerSocket并释放所有相关资源。
+
+#### Socket类
+
+- `Socket(InetAddress address, int port)`
+  - 创建一个流套接字并将其连接到指定IP地址的指定端口号。
+- `InputStream getInputStream()`
+  - 返回此套接字的输入流。用于读取来自套接字的数据。
+- `OutputStream getOutputStream()`
+  - 返回此套接字的输出流。用于向套接字写入数据。
