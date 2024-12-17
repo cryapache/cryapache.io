@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="网络编程概述\r网络编程主要解决计算机与计算机之间的数据传输问题 网络编程三要素：ip地址、端口号、协议 IP地址与端口、子网\rIP地址\rInternet上每台主机（Host）都有一个唯一的ip地址。 常用的ipv4地址由32位二进制数组成，通常用点分十进制表示，如192.168.1.1 IP地址分类\rA类地址：一个网络号+三个主机号 政府单位使用 B类地址：两个网络号+两个主机号 事业单位使用 C类地址：三个网络号+一个主机号 私人使用 特殊的ip地址：127.0.0.1 本机回环地址 InetAddress\rjava.net包下的一个类，表示ip地址，其功能包括： InetAddress 类常用方法简介\rgetLocalHost() 返回表示本地主机的 InetAddress 对象。 getByName(&quot;IP 或主机名&quot;) 根据提供的 IP 地址字符串或主机名返回 InetAddress 对象。 getHostAddress() 返回 IP 地址的字符串形式。 getHostName() 返回该 IP 地址对应的主机名。 端口\r（此处的端口指逻辑端口） 一个ip地址有2^16个端口，好比一扇房子可以有很多个门。其中 0~1023为公认端口，紧密绑定一些服务，例如http默认使用80端口 1024~49151为注册端口，松散绑定一些服务 49152~65535为动态/私有端口 子网\r网络中的每一个计算机都有一个 IP 地址， IP 地址由四个数字表示，包括网络号和主机号两部分；例如 172.16.1.101 ，其中 172.16.1 是网络号，也是常说的网段，101 是主机号；网络号标识的就是上的一个子网；只有在一个子网中计算机之间才能“直接”互通 网络协议\rTCP/IP协议栈\rTCP/IP协议栈是互联网通信的基础，它由一系列协议组成，下面是其中一部分 网络层\rIP (Internet Protocol)：互联网协议，负责将数据包从源地址传输到目的地址。 ICMP (Internet Control Message Protocol)：互联网控制消息协议，用于发送错误报告和其他信息，比如“目的地不可达”消息。 IGMP (Internet Group Management Protocol)：互联网组管理协议，用于管理和维护多播组成员资格。 传输层\rTCP (Transmission Control Protocol)：传输控制协议，提供可靠的数据传输服务，确保数据包按顺序到达，并处理数据包丢失和错误。 UDP (User Datagram Protocol)：用户数据报协议，提供不可靠的数据传输服务，不保证数据包按顺序到达，也不处理数据包丢失和错误。 应用层\rHTTP (HyperText Transfer Protocol)：超文本传输协议，用于在互联网上传输网页数据。 FTP (File Transfer Protocol)：文件传输协议，用于在互联网上传输文件。。 DNS (Domain Name System)：域名系统，用于将域名解析为 IP 地址。 ARP (Address Resolution Protocol)：地址解析协议，用于将 IP 地址解析为物理地址。 TCP协议\rTCP协议是面向连接的协议，它提供可靠的、有序的、无差错的传输服务。 TCP协议通过三次握手建立连接，四次挥手断开连接。 通信前必须建立连接，效率稍低 使用字节流发送数据 UDP协议\rUDP协议是无连接的协议，不建立连接就发送数据包，相对速度较快。 UDP协议不保证数据包按顺序到达，也不处理数据包丢失和错误。 UDP使用数据报模式 每个数据包的大小限制在64k中 适用于一次只传送少量数据，对可靠性要求不高的应用环境 HTTP协议\rHTTP协议（超文本传输协议）是用于从www服务器传输超文本到本地服务器的传输协议">
+<title>Java 网络编程</title>
+
+<link rel='canonical' href='http://localhost:1313/post/java-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/'>
+
+<link rel="stylesheet" href="/scss/style.min.e8c7fca7d1c9294aa7a4f3426c225ee26540f7d94e39be0b5a4a5c8a49ca5a25.css"><meta property='og:title' content="Java 网络编程">
+<meta property='og:description' content="网络编程概述\r网络编程主要解决计算机与计算机之间的数据传输问题 网络编程三要素：ip地址、端口号、协议 IP地址与端口、子网\rIP地址\rInternet上每台主机（Host）都有一个唯一的ip地址。 常用的ipv4地址由32位二进制数组成，通常用点分十进制表示，如192.168.1.1 IP地址分类\rA类地址：一个网络号+三个主机号 政府单位使用 B类地址：两个网络号+两个主机号 事业单位使用 C类地址：三个网络号+一个主机号 私人使用 特殊的ip地址：127.0.0.1 本机回环地址 InetAddress\rjava.net包下的一个类，表示ip地址，其功能包括： InetAddress 类常用方法简介\rgetLocalHost() 返回表示本地主机的 InetAddress 对象。 getByName(&quot;IP 或主机名&quot;) 根据提供的 IP 地址字符串或主机名返回 InetAddress 对象。 getHostAddress() 返回 IP 地址的字符串形式。 getHostName() 返回该 IP 地址对应的主机名。 端口\r（此处的端口指逻辑端口） 一个ip地址有2^16个端口，好比一扇房子可以有很多个门。其中 0~1023为公认端口，紧密绑定一些服务，例如http默认使用80端口 1024~49151为注册端口，松散绑定一些服务 49152~65535为动态/私有端口 子网\r网络中的每一个计算机都有一个 IP 地址， IP 地址由四个数字表示，包括网络号和主机号两部分；例如 172.16.1.101 ，其中 172.16.1 是网络号，也是常说的网段，101 是主机号；网络号标识的就是上的一个子网；只有在一个子网中计算机之间才能“直接”互通 网络协议\rTCP/IP协议栈\rTCP/IP协议栈是互联网通信的基础，它由一系列协议组成，下面是其中一部分 网络层\rIP (Internet Protocol)：互联网协议，负责将数据包从源地址传输到目的地址。 ICMP (Internet Control Message Protocol)：互联网控制消息协议，用于发送错误报告和其他信息，比如“目的地不可达”消息。 IGMP (Internet Group Management Protocol)：互联网组管理协议，用于管理和维护多播组成员资格。 传输层\rTCP (Transmission Control Protocol)：传输控制协议，提供可靠的数据传输服务，确保数据包按顺序到达，并处理数据包丢失和错误。 UDP (User Datagram Protocol)：用户数据报协议，提供不可靠的数据传输服务，不保证数据包按顺序到达，也不处理数据包丢失和错误。 应用层\rHTTP (HyperText Transfer Protocol)：超文本传输协议，用于在互联网上传输网页数据。 FTP (File Transfer Protocol)：文件传输协议，用于在互联网上传输文件。。 DNS (Domain Name System)：域名系统，用于将域名解析为 IP 地址。 ARP (Address Resolution Protocol)：地址解析协议，用于将 IP 地址解析为物理地址。 TCP协议\rTCP协议是面向连接的协议，它提供可靠的、有序的、无差错的传输服务。 TCP协议通过三次握手建立连接，四次挥手断开连接。 通信前必须建立连接，效率稍低 使用字节流发送数据 UDP协议\rUDP协议是无连接的协议，不建立连接就发送数据包，相对速度较快。 UDP协议不保证数据包按顺序到达，也不处理数据包丢失和错误。 UDP使用数据报模式 每个数据包的大小限制在64k中 适用于一次只传送少量数据，对可靠性要求不高的应用环境 HTTP协议\rHTTP协议（超文本传输协议）是用于从www服务器传输超文本到本地服务器的传输协议">
+<meta property='og:url' content='http://localhost:1313/post/java-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/'>
+<meta property='og:site_name' content='墨因梦启'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='java' /><meta property='article:published_time' content='2024-12-10T10:39:07&#43;08:00'/><meta property='article:modified_time' content='2024-12-10T10:39:07&#43;08:00'/>
+<meta name="twitter:title" content="Java 网络编程">
+<meta name="twitter:description" content="网络编程概述\r网络编程主要解决计算机与计算机之间的数据传输问题 网络编程三要素：ip地址、端口号、协议 IP地址与端口、子网\rIP地址\rInternet上每台主机（Host）都有一个唯一的ip地址。 常用的ipv4地址由32位二进制数组成，通常用点分十进制表示，如192.168.1.1 IP地址分类\rA类地址：一个网络号+三个主机号 政府单位使用 B类地址：两个网络号+两个主机号 事业单位使用 C类地址：三个网络号+一个主机号 私人使用 特殊的ip地址：127.0.0.1 本机回环地址 InetAddress\rjava.net包下的一个类，表示ip地址，其功能包括： InetAddress 类常用方法简介\rgetLocalHost() 返回表示本地主机的 InetAddress 对象。 getByName(&quot;IP 或主机名&quot;) 根据提供的 IP 地址字符串或主机名返回 InetAddress 对象。 getHostAddress() 返回 IP 地址的字符串形式。 getHostName() 返回该 IP 地址对应的主机名。 端口\r（此处的端口指逻辑端口） 一个ip地址有2^16个端口，好比一扇房子可以有很多个门。其中 0~1023为公认端口，紧密绑定一些服务，例如http默认使用80端口 1024~49151为注册端口，松散绑定一些服务 49152~65535为动态/私有端口 子网\r网络中的每一个计算机都有一个 IP 地址， IP 地址由四个数字表示，包括网络号和主机号两部分；例如 172.16.1.101 ，其中 172.16.1 是网络号，也是常说的网段，101 是主机号；网络号标识的就是上的一个子网；只有在一个子网中计算机之间才能“直接”互通 网络协议\rTCP/IP协议栈\rTCP/IP协议栈是互联网通信的基础，它由一系列协议组成，下面是其中一部分 网络层\rIP (Internet Protocol)：互联网协议，负责将数据包从源地址传输到目的地址。 ICMP (Internet Control Message Protocol)：互联网控制消息协议，用于发送错误报告和其他信息，比如“目的地不可达”消息。 IGMP (Internet Group Management Protocol)：互联网组管理协议，用于管理和维护多播组成员资格。 传输层\rTCP (Transmission Control Protocol)：传输控制协议，提供可靠的数据传输服务，确保数据包按顺序到达，并处理数据包丢失和错误。 UDP (User Datagram Protocol)：用户数据报协议，提供不可靠的数据传输服务，不保证数据包按顺序到达，也不处理数据包丢失和错误。 应用层\rHTTP (HyperText Transfer Protocol)：超文本传输协议，用于在互联网上传输网页数据。 FTP (File Transfer Protocol)：文件传输协议，用于在互联网上传输文件。。 DNS (Domain Name System)：域名系统，用于将域名解析为 IP 地址。 ARP (Address Resolution Protocol)：地址解析协议，用于将 IP 地址解析为物理地址。 TCP协议\rTCP协议是面向连接的协议，它提供可靠的、有序的、无差错的传输服务。 TCP协议通过三次握手建立连接，四次挥手断开连接。 通信前必须建立连接，效率稍低 使用字节流发送数据 UDP协议\rUDP协议是无连接的协议，不建立连接就发送数据包，相对速度较快。 UDP协议不保证数据包按顺序到达，也不处理数据包丢失和错误。 UDP使用数据报模式 每个数据包的大小限制在64k中 适用于一次只传送少量数据，对可靠性要求不高的应用环境 HTTP协议\rHTTP协议（超文本传输协议）是用于从www服务器传输超文本到本地服务器的传输协议">
+    <link rel="shortcut icon" href="/img/avatar.png" />
+
+  
+
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu16843699398725842714.png" width="300"
+                            height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">👻</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">墨因梦启</a></h1>
+            <h2 class="site-description">功不唐捐，玉汝如成</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='https://github.com/cryapache'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/page/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/page/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/page/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>Dark Mode</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#网络编程概述">网络编程概述</a></li>
+    <li><a href="#ip地址与端口子网">IP地址与端口、子网</a>
+      <ul>
+        <li><a href="#ip地址">IP地址</a></li>
+        <li><a href="#inetaddress">InetAddress</a></li>
+        <li><a href="#端口">端口</a></li>
+        <li><a href="#子网">子网</a></li>
+      </ul>
+    </li>
+    <li><a href="#网络协议">网络协议</a>
+      <ul>
+        <li><a href="#tcpip协议栈">TCP/IP协议栈</a></li>
+        <li><a href="#tcp协议">TCP协议</a></li>
+        <li><a href="#udp协议">UDP协议</a></li>
+        <li><a href="#http协议">HTTP协议</a></li>
+      </ul>
+    </li>
+    <li><a href="#socket">Socket</a>
+      <ul>
+        <li><a href="#socket与serversocket的通讯过程">Socket与ServerSocket的通讯过程</a></li>
+        <li><a href="#socket与serversocket的常用方法">Socket与ServerSocket的常用方法</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+    <header class="article-category">
+        
+            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" style="background-color: #2a9d8f; color: #fff;">
+                学习笔记
+            </a>
+        
+    </header>
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/post/java-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/">Java 网络编程</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Dec 10, 2024</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    1 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h2 id="网络编程概述">网络编程概述
+</h2><p>网络编程主要解决计算机与计算机之间的数据传输问题</p>
+<ul>
+<li>网络编程三要素：ip地址、端口号、协议</li>
+</ul>
+<h2 id="ip地址与端口子网">IP地址与端口、子网
+</h2><h3 id="ip地址">IP地址
+</h3><p>Internet上每台主机（Host）都有一个唯一的ip地址。<br>
+常用的ipv4地址由32位二进制数组成，通常用点分十进制表示，如192.168.1.1</p>
+<h4 id="ip地址分类">IP地址分类
+</h4><ul>
+<li>A类地址：一个网络号+三个主机号 政府单位使用</li>
+<li>B类地址：两个网络号+两个主机号 事业单位使用</li>
+<li>C类地址：三个网络号+一个主机号 私人使用</li>
+</ul>
+<blockquote>
+<p>特殊的ip地址：127.0.0.1 本机回环地址</p>
+</blockquote>
+<h3 id="inetaddress">InetAddress
+</h3><p>java.net包下的一个类，表示ip地址，其功能包括：</p>
+<h4 id="inetaddress-类常用方法简介">InetAddress 类常用方法简介
+</h4><ul>
+<li><code>getLocalHost()</code>
+<ul>
+<li>返回表示本地主机的 <code>InetAddress</code> 对象。</li>
+</ul>
+</li>
+<li><code>getByName(&quot;IP 或主机名&quot;)</code>
+<ul>
+<li>根据提供的 IP 地址字符串或主机名返回 <code>InetAddress</code> 对象。</li>
+</ul>
+</li>
+<li><code>getHostAddress()</code>
+<ul>
+<li>返回 IP 地址的字符串形式。</li>
+</ul>
+</li>
+<li><code>getHostName()</code>
+<ul>
+<li>返回该 IP 地址对应的主机名。</li>
+</ul>
+</li>
+</ul>
+<h3 id="端口">端口
+</h3><p>（此处的端口指逻辑端口）
+一个ip地址有2^16个端口，好比一扇房子可以有很多个门。其中</p>
+<ul>
+<li>0~1023为公认端口，紧密绑定一些服务，例如http默认使用80端口</li>
+<li>1024~49151为注册端口，松散绑定一些服务</li>
+<li>49152~65535为动态/私有端口</li>
+</ul>
+<h3 id="子网">子网
+</h3><p>网络中的每一个计算机都有一个 IP 地址， IP 地址由四个数字表示，包括网络号和主机号两部分；例如 172.16.1.101 ，其中 172.16.1 是网络号，也是常说的网段，101 是主机号；网络号标识的就是上的一个<strong>子网</strong>；只有在一个子网中计算机之间才能“直接”互通</p>
+<h2 id="网络协议">网络协议
+</h2><h3 id="tcpip协议栈">TCP/IP协议栈
+</h3><p>TCP/IP协议栈是互联网通信的基础，它由一系列协议组成，下面是其中一部分</p>
+<h4 id="网络层">网络层
+</h4><ul>
+<li>IP (Internet Protocol)：互联网协议，负责将数据包从源地址传输到目的地址。</li>
+<li>ICMP (Internet Control Message Protocol)：互联网控制消息协议，用于发送错误报告和其他信息，比如“目的地不可达”消息。</li>
+<li>IGMP (Internet Group Management Protocol)：互联网组管理协议，用于管理和维护多播组成员资格。</li>
+</ul>
+<h4 id="传输层">传输层
+</h4><ul>
+<li>TCP (Transmission Control Protocol)：传输控制协议，提供可靠的数据传输服务，确保数据包按顺序到达，并处理数据包丢失和错误。</li>
+<li>UDP (User Datagram Protocol)：用户数据报协议，提供不可靠的数据传输服务，不保证数据包按顺序到达，也不处理数据包丢失和错误。</li>
+</ul>
+<h4 id="应用层">应用层
+</h4><ul>
+<li>HTTP (HyperText Transfer Protocol)：超文本传输协议，用于在互联网上传输网页数据。</li>
+<li>FTP (File Transfer Protocol)：文件传输协议，用于在互联网上传输文件。。</li>
+<li>DNS (Domain Name System)：域名系统，用于将域名解析为 IP 地址。</li>
+<li>ARP (Address Resolution Protocol)：地址解析协议，用于将 IP 地址解析为物理地址。</li>
+</ul>
+<h3 id="tcp协议">TCP协议
+</h3><ul>
+<li>TCP协议是面向连接的协议，它提供可靠的、有序的、无差错的传输服务。</li>
+<li>TCP协议通过三次握手建立连接，四次挥手断开连接。</li>
+<li>通信前必须建立连接，效率稍低</li>
+<li>使用字节流发送数据</li>
+</ul>
+<h3 id="udp协议">UDP协议
+</h3><ul>
+<li>UDP协议是无连接的协议，不建立连接就发送数据包，相对速度较快。</li>
+<li>UDP协议不保证数据包按顺序到达，也不处理数据包丢失和错误。</li>
+<li>UDP使用数据报模式</li>
+<li>每个数据包的大小限制在64k中</li>
+<li>适用于一次只传送少量数据，对可靠性要求不高的应用环境</li>
+</ul>
+<h3 id="http协议">HTTP协议
+</h3><p>HTTP协议（超文本传输协议）是用于从www服务器传输超文本到本地服务器的传输协议</p>
+<ul>
+<li>HTTP协议是互联网中使用最广泛的协议</li>
+<li>设立之初是为了提供一种发布和接收HTML页面的方法</li>
+</ul>
+<h2 id="socket">Socket
+</h2><p>Socket（套接字）是网络编程中的一个抽象层，用于不同计算机进程之间的通信。它提供了应用程序与传输协议之间的接口。通过socket，程序可以发送和接收数据，建立连接，并执行其他网络相关的操作。</p>
+<h3 id="socket与serversocket的通讯过程">Socket与ServerSocket的通讯过程
+</h3><ul>
+<li>服务器端创建一个serversocket实例，绑定到特定端口监听来自客户端的连接请求</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>ServerSocket serverSocket <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ServerSocket(port);
+</span></span></code></pre></div><ul>
+<li>服务器调用accept方法，阻塞直到接收到一个来自客户端的连接请求</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>Socket clientSocket <span style="color:#f92672">=</span> serverSocket.<span style="color:#a6e22e">accept</span>();
+</span></span></code></pre></div><ul>
+<li>客户端创建一个socket实例，连接到服务器的ip地址和端口</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>Socket socket <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Socket(serverAddress, port);
+</span></span></code></pre></div><ul>
+<li>服务器和客户端通过clientsocket和socket的输入输出流进行数据传输</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">// 服务器端读取客户端数据</span>
+</span></span><span style="display:flex;"><span>InputStream input <span style="color:#f92672">=</span> clientSocket.<span style="color:#a6e22e">getInputStream</span>();
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 服务器端发送数据给客户端</span>
+</span></span><span style="display:flex;"><span>OutputStream output <span style="color:#f92672">=</span> clientSocket.<span style="color:#a6e22e">getOutputStream</span>();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 客户端读取服务器端数据</span>
+</span></span><span style="display:flex;"><span>InputStream inputFromServer <span style="color:#f92672">=</span> socket.<span style="color:#a6e22e">getInputStream</span>();
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 客户端发送数据给服务器端</span>
+</span></span><span style="display:flex;"><span>OutputStream outputToServer <span style="color:#f92672">=</span> socket.<span style="color:#a6e22e">getOutputStream</span>();
+</span></span></code></pre></div><ul>
+<li>通信完成后，关闭socket连接</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>clientSocket.<span style="color:#a6e22e">close</span>();
+</span></span><span style="display:flex;"><span>socket.<span style="color:#a6e22e">close</span>();
+</span></span><span style="display:flex;"><span>serverSocket.<span style="color:#a6e22e">close</span>();
+</span></span></code></pre></div><h3 id="socket与serversocket的常用方法">Socket与ServerSocket的常用方法
+</h3><h4 id="serversocket类">ServerSocket类
+</h4><ul>
+<li><code>ServerSocket(int port)</code>
+<ul>
+<li>创建一个绑定到指定端口的服务器套接字。</li>
+</ul>
+</li>
+<li><code>Socket accept()</code>
+<ul>
+<li>监听并接受一个连接请求，返回一个Socket对象。</li>
+</ul>
+</li>
+<li><code>void close()</code>
+<ul>
+<li>关闭此ServerSocket并释放所有相关资源。</li>
+</ul>
+</li>
+</ul>
+<h4 id="socket类">Socket类
+</h4><ul>
+<li><code>Socket(InetAddress address, int port)</code>
+<ul>
+<li>创建一个流套接字并将其连接到指定IP地址的指定端口号。</li>
+</ul>
+</li>
+<li><code>InputStream getInputStream()</code>
+<ul>
+<li>返回此套接字的输入流。用于读取来自套接字的数据。</li>
+</ul>
+</li>
+<li><code>OutputStream getOutputStream()</code>
+<ul>
+<li>返回此套接字的输出流。用于向套接字写入数据。</li>
+</ul>
+</li>
+</ul>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+    <section class="article-tags">
+        
+            <a href="/tags/java/">Java</a>
+        
+    </section>
+
+
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    <script src='//unpkg.com/@waline/client@v2/dist/waline.js'></script>
+<link href='//unpkg.com/@waline/client@v2/dist/waline.css' rel='stylesheet'/>
+<div id="waline" class="waline-container"></div>
+<style>
+    .waline-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+        --waline-font-size: var(--article-font-size);
+    }
+    .waline-container .wl-count {
+        color: var(--card-text-color-main);
+    }
+</style><script>
+    
+    Waline.init({"dark":"html[data-scheme=\"dark\"]","el":"#waline","emoji":["https://cdn.jsdelivr.net/gh/walinejs/emojis/weibo"],"lang":"zh-CN","locale":{"admin":"Admin","placeholder":"欢迎留下宝贵的评论"},"requiredMeta":["name","mail"],"serverURL":"https://cryapacheio-comments-ai615uxyf-cryapaches-projects.vercel.app/","visitor":false});
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+        2024 墨因梦启
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        Theme <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.26.0">Stack</a></b> designed by <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a>
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>

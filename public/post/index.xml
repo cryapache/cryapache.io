@@ -6,7 +6,180 @@
         <description>Recent content in Posts on 墨因梦启</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
-        <lastBuildDate>Mon, 09 Dec 2024 22:41:54 +0800</lastBuildDate><atom:link href="http://localhost:1313/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Tue, 10 Dec 2024 14:36:43 +0800</lastBuildDate><atom:link href="http://localhost:1313/post/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Java 网络编程</title>
+        <link>http://localhost:1313/post/java-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/</link>
+        <pubDate>Tue, 10 Dec 2024 10:39:07 +0800</pubDate>
+        
+        <guid>http://localhost:1313/post/java-%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/</guid>
+        <description>&lt;h2 id=&#34;网络编程概述&#34;&gt;网络编程概述
+&lt;/h2&gt;&lt;p&gt;网络编程主要解决计算机与计算机之间的数据传输问题&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;网络编程三要素：ip地址、端口号、协议&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;ip地址与端口子网&#34;&gt;IP地址与端口、子网
+&lt;/h2&gt;&lt;h3 id=&#34;ip地址&#34;&gt;IP地址
+&lt;/h3&gt;&lt;p&gt;Internet上每台主机（Host）都有一个唯一的ip地址。&lt;br&gt;
+常用的ipv4地址由32位二进制数组成，通常用点分十进制表示，如192.168.1.1&lt;/p&gt;
+&lt;h4 id=&#34;ip地址分类&#34;&gt;IP地址分类
+&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;A类地址：一个网络号+三个主机号 政府单位使用&lt;/li&gt;
+&lt;li&gt;B类地址：两个网络号+两个主机号 事业单位使用&lt;/li&gt;
+&lt;li&gt;C类地址：三个网络号+一个主机号 私人使用&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;特殊的ip地址：127.0.0.1 本机回环地址&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&#34;inetaddress&#34;&gt;InetAddress
+&lt;/h3&gt;&lt;p&gt;java.net包下的一个类，表示ip地址，其功能包括：&lt;/p&gt;
+&lt;h4 id=&#34;inetaddress-类常用方法简介&#34;&gt;InetAddress 类常用方法简介
+&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;getLocalHost()&lt;/code&gt;
+&lt;ul&gt;
+&lt;li&gt;返回表示本地主机的 &lt;code&gt;InetAddress&lt;/code&gt; 对象。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;getByName(&amp;quot;IP 或主机名&amp;quot;)&lt;/code&gt;
+&lt;ul&gt;
+&lt;li&gt;根据提供的 IP 地址字符串或主机名返回 &lt;code&gt;InetAddress&lt;/code&gt; 对象。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;getHostAddress()&lt;/code&gt;
+&lt;ul&gt;
+&lt;li&gt;返回 IP 地址的字符串形式。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;getHostName()&lt;/code&gt;
+&lt;ul&gt;
+&lt;li&gt;返回该 IP 地址对应的主机名。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;端口&#34;&gt;端口
+&lt;/h3&gt;&lt;p&gt;（此处的端口指逻辑端口）
+一个ip地址有2^16个端口，好比一扇房子可以有很多个门。其中&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;0~1023为公认端口，紧密绑定一些服务，例如http默认使用80端口&lt;/li&gt;
+&lt;li&gt;1024~49151为注册端口，松散绑定一些服务&lt;/li&gt;
+&lt;li&gt;49152~65535为动态/私有端口&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;子网&#34;&gt;子网
+&lt;/h3&gt;&lt;p&gt;网络中的每一个计算机都有一个 IP 地址， IP 地址由四个数字表示，包括网络号和主机号两部分；例如 172.16.1.101 ，其中 172.16.1 是网络号，也是常说的网段，101 是主机号；网络号标识的就是上的一个&lt;strong&gt;子网&lt;/strong&gt;；只有在一个子网中计算机之间才能“直接”互通&lt;/p&gt;
+&lt;h2 id=&#34;网络协议&#34;&gt;网络协议
+&lt;/h2&gt;&lt;h3 id=&#34;tcpip协议栈&#34;&gt;TCP/IP协议栈
+&lt;/h3&gt;&lt;p&gt;TCP/IP协议栈是互联网通信的基础，它由一系列协议组成，下面是其中一部分&lt;/p&gt;
+&lt;h4 id=&#34;网络层&#34;&gt;网络层
+&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;IP (Internet Protocol)：互联网协议，负责将数据包从源地址传输到目的地址。&lt;/li&gt;
+&lt;li&gt;ICMP (Internet Control Message Protocol)：互联网控制消息协议，用于发送错误报告和其他信息，比如“目的地不可达”消息。&lt;/li&gt;
+&lt;li&gt;IGMP (Internet Group Management Protocol)：互联网组管理协议，用于管理和维护多播组成员资格。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;传输层&#34;&gt;传输层
+&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;TCP (Transmission Control Protocol)：传输控制协议，提供可靠的数据传输服务，确保数据包按顺序到达，并处理数据包丢失和错误。&lt;/li&gt;
+&lt;li&gt;UDP (User Datagram Protocol)：用户数据报协议，提供不可靠的数据传输服务，不保证数据包按顺序到达，也不处理数据包丢失和错误。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;应用层&#34;&gt;应用层
+&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;HTTP (HyperText Transfer Protocol)：超文本传输协议，用于在互联网上传输网页数据。&lt;/li&gt;
+&lt;li&gt;FTP (File Transfer Protocol)：文件传输协议，用于在互联网上传输文件。。&lt;/li&gt;
+&lt;li&gt;DNS (Domain Name System)：域名系统，用于将域名解析为 IP 地址。&lt;/li&gt;
+&lt;li&gt;ARP (Address Resolution Protocol)：地址解析协议，用于将 IP 地址解析为物理地址。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;tcp协议&#34;&gt;TCP协议
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;TCP协议是面向连接的协议，它提供可靠的、有序的、无差错的传输服务。&lt;/li&gt;
+&lt;li&gt;TCP协议通过三次握手建立连接，四次挥手断开连接。&lt;/li&gt;
+&lt;li&gt;通信前必须建立连接，效率稍低&lt;/li&gt;
+&lt;li&gt;使用字节流发送数据&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;udp协议&#34;&gt;UDP协议
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;UDP协议是无连接的协议，不建立连接就发送数据包，相对速度较快。&lt;/li&gt;
+&lt;li&gt;UDP协议不保证数据包按顺序到达，也不处理数据包丢失和错误。&lt;/li&gt;
+&lt;li&gt;UDP使用数据报模式&lt;/li&gt;
+&lt;li&gt;每个数据包的大小限制在64k中&lt;/li&gt;
+&lt;li&gt;适用于一次只传送少量数据，对可靠性要求不高的应用环境&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;http协议&#34;&gt;HTTP协议
+&lt;/h3&gt;&lt;p&gt;HTTP协议（超文本传输协议）是用于从www服务器传输超文本到本地服务器的传输协议&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;HTTP协议是互联网中使用最广泛的协议&lt;/li&gt;
+&lt;li&gt;设立之初是为了提供一种发布和接收HTML页面的方法&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;socket&#34;&gt;Socket
+&lt;/h2&gt;&lt;p&gt;Socket（套接字）是网络编程中的一个抽象层，用于不同计算机进程之间的通信。它提供了应用程序与传输协议之间的接口。通过socket，程序可以发送和接收数据，建立连接，并执行其他网络相关的操作。&lt;/p&gt;
+&lt;h3 id=&#34;socket与serversocket的通讯过程&#34;&gt;Socket与ServerSocket的通讯过程
+&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;服务器端创建一个serversocket实例，绑定到特定端口监听来自客户端的连接请求&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ServerSocket serverSocket &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;new&lt;/span&gt; ServerSocket(port);
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;服务器调用accept方法，阻塞直到接收到一个来自客户端的连接请求&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Socket clientSocket &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; serverSocket.&lt;span style=&#34;color:#a6e22e&#34;&gt;accept&lt;/span&gt;();
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;客户端创建一个socket实例，连接到服务器的ip地址和端口&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;Socket socket &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;new&lt;/span&gt; Socket(serverAddress, port);
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;服务器和客户端通过clientsocket和socket的输入输出流进行数据传输&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;// 服务器端读取客户端数据&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;InputStream input &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; clientSocket.&lt;span style=&#34;color:#a6e22e&#34;&gt;getInputStream&lt;/span&gt;();
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;// 服务器端发送数据给客户端&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;OutputStream output &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; clientSocket.&lt;span style=&#34;color:#a6e22e&#34;&gt;getOutputStream&lt;/span&gt;();
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;// 客户端读取服务器端数据&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;InputStream inputFromServer &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; socket.&lt;span style=&#34;color:#a6e22e&#34;&gt;getInputStream&lt;/span&gt;();
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;// 客户端发送数据给服务器端&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;OutputStream outputToServer &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; socket.&lt;span style=&#34;color:#a6e22e&#34;&gt;getOutputStream&lt;/span&gt;();
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;通信完成后，关闭socket连接&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;clientSocket.&lt;span style=&#34;color:#a6e22e&#34;&gt;close&lt;/span&gt;();
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;socket.&lt;span style=&#34;color:#a6e22e&#34;&gt;close&lt;/span&gt;();
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;serverSocket.&lt;span style=&#34;color:#a6e22e&#34;&gt;close&lt;/span&gt;();
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;socket与serversocket的常用方法&#34;&gt;Socket与ServerSocket的常用方法
+&lt;/h3&gt;&lt;h4 id=&#34;serversocket类&#34;&gt;ServerSocket类
+&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;ServerSocket(int port)&lt;/code&gt;
+&lt;ul&gt;
+&lt;li&gt;创建一个绑定到指定端口的服务器套接字。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Socket accept()&lt;/code&gt;
+&lt;ul&gt;
+&lt;li&gt;监听并接受一个连接请求，返回一个Socket对象。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;void close()&lt;/code&gt;
+&lt;ul&gt;
+&lt;li&gt;关闭此ServerSocket并释放所有相关资源。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;socket类&#34;&gt;Socket类
+&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Socket(InetAddress address, int port)&lt;/code&gt;
+&lt;ul&gt;
+&lt;li&gt;创建一个流套接字并将其连接到指定IP地址的指定端口号。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;InputStream getInputStream()&lt;/code&gt;
+&lt;ul&gt;
+&lt;li&gt;返回此套接字的输入流。用于读取来自套接字的数据。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;OutputStream getOutputStream()&lt;/code&gt;
+&lt;ul&gt;
+&lt;li&gt;返回此套接字的输出流。用于向套接字写入数据。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        </item>
+        <item>
         <title>Java 多线程</title>
         <link>http://localhost:1313/post/java-%E5%A4%9A%E7%BA%BF%E7%A8%8B/</link>
         <pubDate>Mon, 09 Dec 2024 22:41:54 +0800</pubDate>

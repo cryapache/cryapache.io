@@ -5,6 +5,15 @@
         <link>http://localhost:1313/tags/</link>
         <description>Recent content in Tags on 墨因梦启</description>
         <generator>Hugo -- gohugo.io</generator>
-        <language>en-us</language><atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+        <language>en-us</language>
+        <lastBuildDate>Tue, 10 Dec 2024 10:39:07 +0800</lastBuildDate><atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Java</title>
+        <link>http://localhost:1313/tags/java/</link>
+        <pubDate>Tue, 10 Dec 2024 10:39:07 +0800</pubDate>
+        
+        <guid>http://localhost:1313/tags/java/</guid>
+        <description></description>
+        </item>
+        
     </channel>
 </rss>
